@@ -1,70 +1,91 @@
-using System.Collections;
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerAttributes : MonoBehaviour
+namespace Player
 {
-    //player attributes
-    [SerializeField] private Vector2 playerPosition;
-    
-    //AP
-    [SerializeField] private int maxAP = 6;
-    private int currentAP;
-    
-    //a enum that has powers
-    public enum Powers
+    public class PlayerAttributes : MonoBehaviour
     {
-
-    }
-
-    //a list of all the vegetables the player has
-    private List<Vegetable> vegetables = new List<Vegetable>();
+        //player attributes
+        [SerializeField] private Vector2 playerPosition;
     
-    //bool if the player has left
-    private bool hasLeft = false;
+        //AP
+        [SerializeField] private int maxAP = 6;
+        private int currentAP;
     
-    // Start is called before the first frame update
-    void Start()
-    {
+        //a enum that has powers
+        public enum Powers
+        {
+
+        }
+
+        //a list of all the vegetables the player has
+        private List<Vegetable> vegetables = new List<Vegetable>();
+    
+        //bool if the player has left
+        private bool hasLeft = false;
+    
+        // Start is called before the first frame update
+        void Start()
+        {
+            currentAP = maxAP;
+        }
+
+        // Update is called once per frame
+        void Update()
+        {
         
-    }
+        }
+    
+        //getters and setters
+        public List<Vegetable> Vegetables
+        {
+            get => vegetables;
+            set => vegetables = value;
+        }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+        //add a vegetable to the list
+        public void AddVegetable(Vegetable vegetable)
+        {
+            vegetables.Add(vegetable);
+        }
     
-    //getters and setters
-    public List<Vegetable> Vegetables
-    {
-        get => vegetables;
-        set => vegetables = value;
-    }
+        //remove a vegetable from the list
+        public void RemoveVegetable(Vegetable vegetable)
+        {
+            vegetables.Remove(vegetable);
+        }
+    
+        //getter and setter for the player position
+        public Vector2 PlayerPosition
+        {
+            get => playerPosition;
+            set => playerPosition = value;
+        }
+    
+        //getter and setter for has left
+        public bool HasLeft
+        {
+            get => hasLeft;
+            set => hasLeft = value;
+        }
 
-    //add a vegetable to the list
-    public void AddVegetable(Vegetable vegetable)
-    {
-        vegetables.Add(vegetable);
-    }
-    
-    //remove a vegetable from the list
-    public void RemoveVegetable(Vegetable vegetable)
-    {
-        vegetables.Remove(vegetable);
-    }
-    
-    //getter and setter for the player position
-    public Vector2 PlayerPosition
-    {
-        get => playerPosition;
-        set => playerPosition = value;
-    }
-    
-    //getter and setter for has left
-    public bool HasLeft
-    {
-        get => hasLeft;
-        set => hasLeft = value;
+        private void MoveToGrid(Vector2 TargetPosition)
+        {
+            //move the player to the grid position
+            if (!hasLeft)
+            {
+                //roundedUp = (int)Math.Ceiling(precise);
+                int APNeeded = (int)Math.Ceiling(Math.Abs(TargetPosition.x - playerPosition.x) + Math.Abs(TargetPosition.y - playerPosition.y));
+            
+                if (APNeeded <= currentAP)
+                {
+                    currentAP -= APNeeded;
+                    playerPosition = TargetPosition;
+                }
+            }
+            
+        }
+
     }
 }
