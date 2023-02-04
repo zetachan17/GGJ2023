@@ -217,7 +217,7 @@ SpriteRenderer:
   m_Size: {x: 1, y: 1}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!114 &8160823464686221694
@@ -229,15 +229,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 5601146560525081902}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4eec617c443eaff44989b26a1ba2191b, type: 3}
+  m_Script: {fileID: 11500000, guid: 9f31f5ed953306b448a9237c9916beb8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mSize: 1
+  mSize: 0
   mType: 0
   mInGround: 1
   mInfoPanel: {fileID: 3930248074717337023}
   mInfoPanelText: {fileID: 4052897968977583049}
-  mTimerDelay: 1
+  mTimerDelay: 0.5
 --- !u!61 &8115255995528501207
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -332,7 +332,7 @@ MonoBehaviour:
       m_Calls: []
   m_text: UNITY
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: ee07238094a017a4baa34266711d0ca4, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -396,7 +396,7 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
-  m_hasFontAssetChanged: 0
+  m_hasFontAssetChanged: 1
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
 --- !u!1 &9202330335695769657

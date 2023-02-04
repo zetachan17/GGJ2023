@@ -7,7 +7,7 @@ using UnityEngine.EventSystems;
 
 public class Vegetable : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 {
-    enum VegetableType
+    public enum VegetableType
     {
         potato,
         carrot,
@@ -17,8 +17,8 @@ public class Vegetable : MonoBehaviour, IPointerEnterHandler, IPointerExitHandle
 
    
 
-    [SerializeField] int mSize;
-    [SerializeField] VegetableType mType;
+    [SerializeField] int mSize = 0;
+    [SerializeField] VegetableType mType = VegetableType.potato;
 
     [SerializeField] bool mInGround = true;
     [SerializeField] GameObject mInfoPanel;
@@ -33,7 +33,10 @@ public class Vegetable : MonoBehaviour, IPointerEnterHandler, IPointerExitHandle
     float mTimerStartTime;
     SpriteRenderer mSpriteRenderer;
 
-    
+    public void setType(VegetableType type)
+    {
+        mType = type;
+    }
     
     // Start is called before the first frame update
     void Start()
@@ -41,6 +44,7 @@ public class Vegetable : MonoBehaviour, IPointerEnterHandler, IPointerExitHandle
         mSpriteRenderer = gameObject.GetComponentInChildren<SpriteRenderer>();
     }
 
+    
     // Update is called once per frame
     void Update()
     {
