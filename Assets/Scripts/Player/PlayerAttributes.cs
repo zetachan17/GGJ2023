@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using UnityEngine;
 
-/*
+
 namespace Player
 {
     public class PlayerAttributes : MonoBehaviour
@@ -15,16 +15,24 @@ namespace Player
         private int currentAP;
     
         //a enum that has powers
-        public enum Power
+        public enum Powers
         {
-
+            Fire,
+            Action,
+            Block,
+            Ice,
+            Cat,
+            Dog,
+            Hairball,
+            None
         }
+
 
         //a list of all the vegetables the player has
         private List<Vegetable> vegetables = new List<Vegetable>();
         
         // a list of powers the player has
-        private List<Power> powers = new List<Power>();
+        private List<Powers> powers = new List<Powers>();
         
         //bool if the player has left
         private bool hasLeft = false;
@@ -92,4 +100,4 @@ namespace Player
 
     }
 }
-*/
+
