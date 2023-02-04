@@ -6,7 +6,7 @@ namespace Player
 {
     public class PlayerAttributes : MonoBehaviour
     {
-        //player attributes
+        //player position
         [SerializeField] private Vector2 playerPosition;
     
         //AP
@@ -14,17 +14,20 @@ namespace Player
         private int currentAP;
     
         //a enum that has powers
-        public enum Powers
+        public enum Power
         {
 
         }
 
         //a list of all the vegetables the player has
         private List<Vegetable> vegetables = new List<Vegetable>();
-    
+        
+        // a list of powers the player has
+        private List<Power> powers = new List<Power>();
+        
         //bool if the player has left
         private bool hasLeft = false;
-    
+        
         // Start is called before the first frame update
         void Start()
         {
@@ -84,7 +87,6 @@ namespace Player
                     playerPosition = TargetPosition;
                 }
             }
-            
         }
 
     }
