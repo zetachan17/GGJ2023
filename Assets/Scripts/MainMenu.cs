@@ -1,5 +1,6 @@
 ﻿using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 using Random = UnityEngine.Random;
 
 namespace UI.Menus
@@ -26,6 +27,7 @@ namespace UI.Menus
         public GameObject charSelectPanel;
         public GameObject[] charSelectButtons;
         public TMP_Text[] charNamePlates;
+        public TMP_Text characterSelectTooltip;
 
         [Header("Instruction Panel")]
         public GameObject instructionPanel;
@@ -40,6 +42,7 @@ namespace UI.Menus
         private GameObject _activePanel;
 
         private int chosenAnimal = 0;
+        private int currentPlayer = 1;
 
         
         public void Awake()
@@ -65,7 +68,16 @@ namespace UI.Menus
             // If provided name is empty, pick a default name
             if (newName != string.Empty)
             {
-                newName = newName.ToUpper();
+                //limit to 10 characters
+                if(newName.Length > 10)
+                {
+                    newName = newName.Substring(0, 10).ToUpper(); 
+                }
+                else
+                {
+                    newName = newName.ToUpper();
+                }
+                
                 nameInputField.text = "";
             }
             else
@@ -74,6 +86,17 @@ namespace UI.Menus
             }
 
             charNamePlates[chosenAnimal-1].text = newName;
+            charSelectButtons[chosenAnimal-1].GetComponent<Button>().enabled = false;
+            currentPlayer++;
+            if(currentPlayer < 5)
+            {
+                characterSelectTooltip.text = "Player " + currentPlayer + ", decide!";
+            }
+            else
+            {
+                characterSelectTooltip.text = "Let's go!";
+            }
+            
 
             //TO-DO: SET UP A PLAYER
             
