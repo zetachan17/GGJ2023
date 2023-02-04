@@ -63,7 +63,7 @@ namespace UI.Menus
         {
             string newName = nameInputField.text;
 
-            string[] defaultNames = { "BUCKWHEAT", "WHISKERS", "REX", "BILLY BOY", "JEB", "FRANÇOIS", "BIG BERTHA", "BLITZ" };
+            string[] defaultNames = { "BUCKWHEAT", "WHISKERS", "REX", "BILLY BOY", "JEB", "FRANCOIS", "BIG BERTHA", "BLITZ" };
 
             // If provided name is empty, pick a default name
             if (newName != string.Empty)
