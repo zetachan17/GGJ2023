@@ -3,9 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
-using UnityEngine.EventSystems;
 
-public class Vegetable : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
+public class Vegetable : MonoBehaviour 
 {
     enum VegetableType
     {
@@ -24,7 +23,7 @@ public class Vegetable : MonoBehaviour, IPointerEnterHandler, IPointerExitHandle
     [SerializeField] GameObject mInfoPanel;
     [SerializeField] TMP_Text mInfoPanelText;
 
-    [SerializeField] float mTimerDelay = 0.5f;
+    [SerializeField] float mTimerDelay = 1.0f;
 
     bool mInfoTextOn = false;
     bool mMouseOn = false;
@@ -32,8 +31,6 @@ public class Vegetable : MonoBehaviour, IPointerEnterHandler, IPointerExitHandle
 
     float mTimerStartTime;
     SpriteRenderer mSpriteRenderer;
-
-    
     
     // Start is called before the first frame update
     void Start()
@@ -117,18 +114,17 @@ public class Vegetable : MonoBehaviour, IPointerEnterHandler, IPointerExitHandle
 
     }
 
-    public void OnPointerEnter(PointerEventData eventData)
+    private void OnMouseOver()
     {
         Debug.Log("mousey is in the henhouse");
         if (!mTimerStarted)
         {
-            mMouseOn = true;
             mTimerStarted = true;
             mTimerStartTime = Time.time;
         }
     }
 
-    public void OnPointerExit(PointerEventData eventData)
+    private void OnMouseExit()
     {
         mMouseOn = false;
         mTimerStarted = false;
@@ -142,24 +138,24 @@ public class Vegetable : MonoBehaviour, IPointerEnterHandler, IPointerExitHandle
 
     void generateText()
     {
-        string wText = "A";
+        string wText = "A ";
 
         switch (mSize)
         {
             case 0:
-                wText += " Seedling";
+                wText += " Seedling ";
                 break;
             case 1:
-                wText += " Small";
+                wText += " Small ";
                 break;
             case 2:
-                wText += " Medium Sized";
+                wText += " Medium Sized ";
                 break;
             case 3:
-                wText += " Big";
+                wText += " Big ";
                 break;
             case 4:
-                wText += " Huge";
+                wText += " Huge ";
                 break;
             default:
                 return;
@@ -167,22 +163,22 @@ public class Vegetable : MonoBehaviour, IPointerEnterHandler, IPointerExitHandle
         switch (mType)
         {
             case VegetableType.potato:
-                wText += "\nPotato";
+                wText += "Potato";
                 break;
             case VegetableType.carrot:
-                wText += "\nCarrot";
+                wText += "Carrot";
                 break;
             case VegetableType.turnip:
-                wText += "\nTurnip";
+                wText += "Turnip";
                 break;
             case VegetableType.garlic:
-                wText += "\nGarlic Bulb";
+                wText += "Garlic Bulb";
                 break;
             default:
                 return;
         }
 
-        if (mInGround) wText += "\nready for harvest";
+        if (mInGround) wText += " ready to be harvested";
         wText += ".";
         mInfoPanelText.SetText(wText);
     }
