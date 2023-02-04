@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2067360926461477307}
   - component: {fileID: 3043090629198182346}
+  - component: {fileID: 3309313243693824281}
   m_Layer: 0
   m_Name: quest
   m_TagString: Untagged
@@ -84,6 +85,18 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &3309313243693824281
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2680901267695239360}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2cea4f17392d241c98ee4da7f1e72752, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &7647045827350490550
 GameObject:
   m_ObjectHideFlags: 0
