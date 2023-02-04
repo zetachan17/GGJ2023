@@ -8,9 +8,12 @@ public class PlayerControls: MonoBehaviour
     [SerializeField]private Tilemap groundTilemap;
     [SerializeField]private Tilemap collisionTilemap;
     private PlayerActions playerActions;
+    private SpawnThingOnGrid thingspawner;
+    [SerializeField] private GameObject testSpawnObj; // 
 
     private void Awake() {
         playerActions = new PlayerActions();
+        thingspawner = new SpawnThingOnGrid();
     }
 
     private void OnEnable() {
@@ -26,8 +29,14 @@ public class PlayerControls: MonoBehaviour
     }
     
     private void Move(Vector2 dir){
-        if(CanMove(dir)){
+        if (CanMove(dir)){
+            //testing spawn thing on player pos 
+            Vector3Int gridPosition = groundTilemap.WorldToCell(transform.position);
+            thingspawner.SpawnThingAt(testSpawnObj, transform.position);
+
+            //player moves
             transform.position += (Vector3)dir;
+            Debug.Log("moved to" + gridPosition);
         }
 
     }
