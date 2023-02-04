@@ -13,7 +13,8 @@ public class PlayerControls: MonoBehaviour
 
     [SerializeField] private List<Vector3Int> plantedSeedsPos;
 
-
+    [SerializeField] private PlayerAttributes playerAttributes;
+    
     private void Awake() {
         playerActions = new PlayerActions();
         thingspawner = new SpawnThingOnGrid();
@@ -58,8 +59,14 @@ public class PlayerControls: MonoBehaviour
 
 
             //player moves
-            transform.position += (Vector3)dir;
-            Debug.Log("moved to" + groundTilemap.WorldToCell(transform.position));
+            //if (playerAttributes.CurrentAP > 0)
+            {
+                playerAttributes.CurrentAP--;
+                transform.position += (Vector3)dir;
+                Debug.Log("moved to" + groundTilemap.WorldToCell(transform.position));
+                Debug.Log("AP left: " + playerAttributes.CurrentAP);
+            }
+            
             
         }
 
