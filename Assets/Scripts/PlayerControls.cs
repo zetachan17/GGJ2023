@@ -32,7 +32,7 @@ public class PlayerControls: MonoBehaviour
         if (CanMove(dir)){
             //testing spawn thing on player pos 
             Vector3Int gridPosition = groundTilemap.WorldToCell(transform.position);
-            thingspawner.SpawnThingAt(testSpawnObj, gridPosition);
+            thingspawner.SpawnThingAt(testSpawnObj, transform.position);
 
             //player moves
             transform.position += (Vector3)dir;

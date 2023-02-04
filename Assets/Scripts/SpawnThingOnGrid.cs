@@ -31,7 +31,7 @@ public class SpawnThingOnGrid : MonoBehaviour
     }
 
 
-    public void SpawnThingAt(GameObject thing, Vector3Int spawnPointV3)
+    public void SpawnThingAt(GameObject thing, Vector3 spawnPointV3)
     {
         Instantiate(thing, spawnPointV3,Quaternion.identity);
     }
