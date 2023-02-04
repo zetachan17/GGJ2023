@@ -6,7 +6,7 @@ using UnityEngine;
 public class Customer : MonoBehaviour
 {
     // GameObject _gameObject
-    Power _power;
+    private Power _power;
     private enum Power
     {
         Fire,
