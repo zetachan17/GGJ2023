@@ -6,10 +6,15 @@ using UnityEngine.Tilemaps;
 public class SpawnThingOnGrid : MonoBehaviour
 {
 
-    //they are like a dictionary but im too lazy, make sure they have same length
     [SerializeField] Tilemap tilemap;
-    [SerializeField] GameObject[] thingsToSpawn;
-    [SerializeField] Vector3[] spawnPoints; 
+
+    //they are like a dictionary but im too lazy, make sure they have same length
+    [SerializeField] GameObject[] vegPrefab; //ur potats and carots
+    [SerializeField] float[] spawnProbability;//their respective spawn chance, should be between 0 and 1
+
+    //these 2 values are linked
+    [SerializeField] List<GameObject> plantedVegetables;
+    [SerializeField] List<Vector3> plantedVegetableLocations; 
 
 
     // Start is called before the first frame update
@@ -24,9 +29,8 @@ public class SpawnThingOnGrid : MonoBehaviour
         
     }
 
-    public void RandomSpawner(float chanceToSpawn) //should be between 0 and 1
+    void RandomSpawner(GameObject go,float chanceToSpawn) //should be between 0 and 1
     {
-
         int gridX = 1;
 
         for (int i = gridX; i < 9; i++)//loop the rows
@@ -34,41 +38,57 @@ public class SpawnThingOnGrid : MonoBehaviour
             int gridY = -7;
             for (int j = gridY; j < 1; j++)
             {
-                float randomF = Random.Range(0f, 1f);
-                if (randomF < chanceToSpawn)
+                Vector3 v3offset = go.transform.GetChild(0).GetComponent<SpriteRenderer>().size / 2;
+                Vector3 v3 = new Vector3(i, j, 0) + v3offset;
+                if (!plantedVegetableLocations.Contains(v3))
                 {
-                    Vector3 v3offset = thingsToSpawn[0].GetComponent<SpriteRenderer>().size / 2;
-                    Vector3 v3 = new Vector3(i, j, 0) + v3offset;
-                    SpawnThingAt(thingsToSpawn[0], v3);
-                    Debug.Log("Spawned Seed at" + new Vector3(i, j, 0));
+                    float randomF = Random.Range(0f, 1f);
+                    if (randomF < chanceToSpawn)
+                    {
+                        //SpawnThingAt(vegPrefab[0], v3);
+                        GameObject newVeg = Instantiate(go, v3, Quaternion.identity); //Plant Seed!!
+                        plantedVegetables.Add(newVeg);
+                        plantedVegetableLocations.Add(v3);
+
+                        Debug.Log("Spawned " + go.transform.GetComponentInChildren<Vegetable>().getType() + " Seed at" + new Vector3(i, j, 0));
+                        //keep track of what got planted
+
+                    }
                 }
+                else
+                {
+                    Debug.Log("tile occupied");
+                }
+
+
+                
             }
         }
 
     }
 
-    public void SpawnAllThings()
+    public void SpawnAllSeeds()
     {
-        
-
-        for (int i = 0; i < thingsToSpawn.Length; i++)
+        for(int i = 0; i< vegPrefab.Length; i++)
         {
+            RandomSpawner(vegPrefab[i],spawnProbability[i]);
+        }
+    }
 
-            Vector3 v3offset = thingsToSpawn[i].GetComponent<SpriteRenderer>().size / 2;
-            //Debug.Log(v3offset);
-            Vector3 v3 = spawnPoints[i] + v3offset; //so that sprite spawns on the center of tile
 
-            SpawnThingAt(thingsToSpawn[i], v3);
-            
+    public void growAll() //all vegetable grows a cycle
+    {
+        foreach(GameObject go in plantedVegetables)
+        {
+            go.GetComponentInChildren<Vegetable>().grow();
         }
     }
 
 
     public void SpawnThingAt(GameObject thing, Vector3 spawnPointV3)
     {
-
         Instantiate(thing, spawnPointV3,Quaternion.identity);//instantiate under the grid
     }
 
-    
+
 }

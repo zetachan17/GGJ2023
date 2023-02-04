@@ -37,7 +37,12 @@ public class Vegetable : MonoBehaviour, IPointerEnterHandler, IPointerExitHandle
     {
         mType = type;
     }
-    
+
+    public string getType()
+    {
+        return mType.ToString();
+    }
+
     // Start is called before the first frame update
     void Start()
     {
@@ -60,7 +65,7 @@ public class Vegetable : MonoBehaviour, IPointerEnterHandler, IPointerExitHandle
         }
     }
 
-    void grow()
+    public void grow()
     {
         if (mSize < 4) mSize += 1;
     }
