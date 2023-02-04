@@ -87,6 +87,7 @@ namespace UI.Menus
 
             charNamePlates[chosenAnimal-1].text = newName;
             charSelectButtons[chosenAnimal-1].GetComponent<Button>().enabled = false;
+            charSelectButtons[chosenAnimal - 1].GetComponent<Image>().color = Color.gray;
             currentPlayer++;
             if(currentPlayer < 5)
             {
