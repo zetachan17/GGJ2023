@@ -87,6 +87,12 @@ public class Customer : MonoBehaviour
         gameObject.transform.localScale-=new Vector3(1,1,0);
         print("this is leaving forever");
     }
+
+    public string getPower()
+    {
+        return _power.ToString();
+        
+    }
     // private void OnColliderEnter2D(Collider2D other)
     // {
     //     print("this is highlighted");

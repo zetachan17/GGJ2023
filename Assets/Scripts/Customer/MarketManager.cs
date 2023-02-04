@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using Unity.VisualScripting;
 using UnityEngine;
 using Random = System.Random;
 
@@ -10,6 +11,8 @@ public class MarketManager : MonoBehaviour
     public GameObject spawnee;
 
     public Sprite[] mySpr;
+
+    public Sprite[] powerSprites;
 
     // Start is called before the first frame update
     void Start()
@@ -45,18 +48,48 @@ public class MarketManager : MonoBehaviour
         // }
 
 
-        for (int i = 0; i < customersPos.Length-1; i++)
+        for (int i = 0; i < customersPos.Length - 2; i++)
         {
             GameObject spawneee = Instantiate(spawnee, customersPos[i], transform.rotation);
             spawneee.AddComponent<Customer>().SetUpCustomers(newList[i]);
-            
-            spawneee.GetComponent<SpriteRenderer>().sprite = mySpr[newList[i]];
-            
-            
+
+            spawneee.GetComponent<SpriteRenderer>().sprite = mySpr[newList[i]-1];
+
+            string power = spawneee.GetComponent<Customer>().getPower();
+            print(power);
+            if (!power.Equals("Null"))
+            {
+                switch (power)
+                {
+                    case "Action":
+                        spawneee.transform.GetChild(0).GetComponent<SpriteRenderer>().sprite = powerSprites[0];
+                        break;
+                    case "Block":
+                        spawneee.transform.GetChild(0).GetComponent<SpriteRenderer>().sprite = powerSprites[1];
+                        break;
+                    case "Cat":
+                        spawneee.transform.GetChild(0).GetComponent<SpriteRenderer>().sprite= powerSprites[2];
+                        break;
+                    case "Dog":
+                        spawneee.transform.GetChild(0).GetComponent<SpriteRenderer>().sprite= powerSprites[3];
+                        break;
+                    case "Fire":
+                        spawneee.transform.GetChild(0).GetComponent<SpriteRenderer>().sprite= powerSprites[4];
+                        break;
+                    case "Hairball":
+                        spawneee.transform.GetChild(0).GetComponent<SpriteRenderer>().sprite= powerSprites[5];
+                        break;
+                    case "Ice":
+                        spawneee.transform.GetChild(0).GetComponent<SpriteRenderer>().sprite= powerSprites[6];
+                        break;
+                }
+            }
         }
-        GameObject soupGuy =Instantiate(spawnee, customersPos[7], transform.rotation);
+        GameObject coolGuy = Instantiate(spawnee, customersPos[6], transform.rotation);
+        coolGuy.AddComponent<Customer>().SetUpCustomers(12);
+        GameObject soupGuy = Instantiate(spawnee, customersPos[7], transform.rotation);
         soupGuy.AddComponent<Customer>().SetUpCustomers(13);
-            
+
         soupGuy.GetComponent<SpriteRenderer>().sprite = mySpr[12];
     }
 
