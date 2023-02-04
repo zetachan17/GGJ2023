@@ -29,9 +29,6 @@ public class SpawnThingOnGrid : MonoBehaviour
 
         for (int i = 0; i < thingsToSpawn.Length; i++)
         {
-            //Vector3Int gridPos = 
-            //Vector3Int cellPosition = tilemap.WorldToCell(spawnPoints[i]);
-            //Vector3Int gridPos = tilemap.GetCellCenterWorld(cellPosition);
 
             Vector3 v3offset = thingsToSpawn[i].GetComponent<SpriteRenderer>().size / 2;
             Debug.Log(v3offset);
