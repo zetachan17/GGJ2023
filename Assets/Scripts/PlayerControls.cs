@@ -11,6 +11,9 @@ public class PlayerControls: MonoBehaviour
     private SpawnThingOnGrid thingspawner;
     [SerializeField] private GameObject testSpawnObj; // 
 
+    [SerializeField] private List<Vector3Int> plantedSeedsPos;
+
+
     private void Awake() {
         playerActions = new PlayerActions();
         thingspawner = new SpawnThingOnGrid();
@@ -34,9 +37,30 @@ public class PlayerControls: MonoBehaviour
             Vector3Int gridPosition = groundTilemap.WorldToCell(transform.position);
             thingspawner.SpawnThingAt(testSpawnObj, transform.position);
 
+            /*
+            //Add planted seeds to list of pos that has seeds
+            foreach(Vector3Int v3i in plantedSeedsPos)
+            {
+                if (v3i.x==gridPosition.x)
+                {
+                    Debug.Log("Already has a seed");
+                }
+                else
+                {
+                    Debug.Log("seed planted");
+                    plantedSeedsPos.Add(gridPosition);
+                    //check if it already has a thing
+                }
+            }
+            */
+            
+            
+
+
             //player moves
             transform.position += (Vector3)dir;
-            Debug.Log("moved to" + gridPosition);
+            Debug.Log("moved to" + groundTilemap.WorldToCell(transform.position));
+            
         }
 
     }
