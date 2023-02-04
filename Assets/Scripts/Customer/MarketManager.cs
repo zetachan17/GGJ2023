@@ -39,10 +39,10 @@ public class MarketManager : MonoBehaviour
         int iSeed = BitConverter.ToInt32(buffer, 0);
         Random random = new Random(iSeed);
         var newList = customerList.OrderBy(x => random.Next()).ToArray();
-        foreach (var integer in newList)
-        {
-            print(integer);
-        }
+        // foreach (var integer in newList)
+        // {
+        //     print(integer);
+        // }
 
 
         for (int i = 0; i < customersPos.Length-1; i++)

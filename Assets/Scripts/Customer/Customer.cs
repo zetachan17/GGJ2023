@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using Player;
@@ -74,4 +75,19 @@ public class Customer : MonoBehaviour
     void Update()
     {
     }
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        gameObject.transform.localScale+=new Vector3(1,1,0);
+        print("this is highlighted");
+    }
+    private void OnTriggerExit2D(Collider2D other)
+    {
+        gameObject.transform.localScale-=new Vector3(1,1,0);
+        print("this is leaving forever");
+    }
+    // private void OnColliderEnter2D(Collider2D other)
+    // {
+    //     print("this is highlighted");
+    // }
 }
