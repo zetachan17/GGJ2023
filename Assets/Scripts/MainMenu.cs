@@ -100,6 +100,7 @@ namespace UI.Menus
             
 
             //TO-DO: SET UP A PLAYER
+
             
             nameEditorPopup.SetActive(false);
         }
