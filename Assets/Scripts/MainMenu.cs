@@ -41,13 +41,17 @@ namespace UI.Menus
         
         private GameObject _activePanel;
 
+        public GameObject audioManager;
+
         private int chosenAnimal = 0;
         private int currentPlayer = 1;
+        private AudioSource[] audios;
 
         
         public void Awake()
         {
             SetActivePanel(startPanel);
+            audios = audioManager.GetComponents<AudioSource>();
         }
 
         #region UI Callbacks
@@ -57,6 +61,7 @@ namespace UI.Menus
         {
             nameEditorPopup.SetActive(true);
             chosenAnimal = animal;
+            audios[chosenAnimal-1].Play();
         }
 
         public void OnConfirmEditNameClicked()
@@ -86,6 +91,7 @@ namespace UI.Menus
             }
 
             charNamePlates[chosenAnimal-1].text = newName;
+            
             charSelectButtons[chosenAnimal-1].GetComponent<Button>().enabled = false;
             charSelectButtons[chosenAnimal - 1].GetComponent<Image>().color = Color.gray;
             currentPlayer++;
@@ -109,6 +115,7 @@ namespace UI.Menus
         {
             charSelectPanel.SetActive(true);
             startPanel.SetActive(false);
+            audios[4].Play();
         }
         
 
