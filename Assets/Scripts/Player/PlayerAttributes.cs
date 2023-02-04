@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using UnityEngine;
 
+/*
 namespace Player
 {
     public class PlayerAttributes : MonoBehaviour
@@ -91,3 +92,4 @@ namespace Player
 
     }
 }
+*/
