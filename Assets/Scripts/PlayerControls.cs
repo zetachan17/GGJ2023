@@ -115,7 +115,6 @@ public class PlayerControls: MonoBehaviour
                         GameInfo.Instance.mPlayer4 = mPlayerAttributes;
                         break;
                 }
-                FindObjectOfType<UIMenu>().CallUpdateUI();
 
                 GameObject wTempGameObject = GameObject.Find("Veg_" + mCurrentPosition.x + "_" + mCurrentPosition.y);
                 if (wTempGameObject)
