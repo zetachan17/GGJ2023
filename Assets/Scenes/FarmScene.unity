@@ -213,10 +213,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cd956a11dea1b1147b9199d7d9388142, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mPlayer1: {fileID: 0}
-  mPlayer2: {fileID: 0}
-  mPlayer3: {fileID: 0}
-  mPlayer4: {fileID: 0}
 --- !u!1 &605862385
 GameObject:
   m_ObjectHideFlags: 0
@@ -328,11 +324,15 @@ MonoBehaviour:
   mRound: 1
   mTurn: 0
   mGrid: {fileID: 2023831117}
-  mPlayer1: {fileID: 0}
-  mPlayer2: {fileID: 0}
-  mPlayer3: {fileID: 0}
-  mPlayer4: {fileID: 0}
+  mPlayer1GameObject: {fileID: 0}
+  mPlayer2GameObject: {fileID: 0}
+  mPlayer3GameObject: {fileID: 0}
+  mPlayer4GameObject: {fileID: 0}
   vegetablePrefab: {fileID: 5532535277959985215, guid: 79b54661851ea9643b0e5b5370237aa9, type: 3}
+  mCatSprite: {fileID: 0}
+  mDogSprite: {fileID: 0}
+  mCapybaraSprite: {fileID: 0}
+  mDonkeySprite: {fileID: 0}
 --- !u!4 &702388904
 Transform:
   m_ObjectHideFlags: 0

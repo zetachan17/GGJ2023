@@ -18,11 +18,20 @@ public class FarmManager : MonoBehaviour
     [SerializeField] PlayerAttributes mPlayer3;
     [SerializeField] PlayerAttributes mPlayer4;
 
-
+    [SerializeField] GameObject mPlayer1GameObject;
+    [SerializeField] GameObject mPlayer2GameObject;
+    [SerializeField] GameObject mPlayer3GameObject;
+    [SerializeField] GameObject mPlayer4GameObject;
 
     Dictionary<Vector2Int, Vector2Int> mFarmContents;
 
     [SerializeField] GameObject vegetablePrefab;
+
+    [SerializeField] Sprite mCatSprite;
+    [SerializeField] Sprite mDogSprite;
+    [SerializeField] Sprite mCapybaraSprite;
+    [SerializeField] Sprite mDonkeySprite;
+
 
     private void Awake()
     {
@@ -40,6 +49,7 @@ public class FarmManager : MonoBehaviour
         mPlayer3 = GameInfo.Instance.mPlayer3;
         mPlayer4 = GameInfo.Instance.mPlayer4;
         mTurn = 1;
+        setPlayerObjectSprites();
         mActivePlayer = mStartPlayer;
         if (mRound == 1)
         {
@@ -50,10 +60,10 @@ public class FarmManager : MonoBehaviour
         else
         {
             mFarmContents = GameInfo.Instance.mFarmContents;
-
+            loadField();
             mStartPlayer = GameInfo.Instance.mStartPlayer;
         }
-        //TODO: Generate Customers - push info to UI and gameinfo instance
+        //TODO: Check if any player has teleport power
     }
 
     // Update is called once per frame
@@ -62,7 +72,7 @@ public class FarmManager : MonoBehaviour
 
     }
 
-    public void endPlayerTurn()
+    public void endPlayerTurn(PlayerAttributes iPlayerAttributes, Vector2Int iPlayerPosition)
     {
         mActivePlayer++;
         if (mActivePlayer == 5) mActivePlayer = 1;
@@ -206,6 +216,70 @@ public class FarmManager : MonoBehaviour
         
     }
 
+    void setPlayerObjectSprites()
+    {
+
+        switch (mPlayer1.ChosenAnimal)
+        {
+            case 1:
+                mPlayer1GameObject.GetComponent<SpriteRenderer>().sprite = mCatSprite;
+                break;
+            case 2:
+                mPlayer1GameObject.GetComponent<SpriteRenderer>().sprite = mDogSprite;
+                break;
+            case 3:
+                mPlayer1GameObject.GetComponent<SpriteRenderer>().sprite = mCapybaraSprite;
+                break;
+            case 4:
+                mPlayer1GameObject.GetComponent<SpriteRenderer>().sprite = mDonkeySprite;
+                break;
+        }
+        switch (mPlayer2.ChosenAnimal)
+        {
+            case 1:
+                mPlayer2GameObject.GetComponent<SpriteRenderer>().sprite = mCatSprite;
+                break;
+            case 2:
+                mPlayer2GameObject.GetComponent<SpriteRenderer>().sprite = mDogSprite;
+                break;
+            case 3:
+                mPlayer2GameObject.GetComponent<SpriteRenderer>().sprite = mCapybaraSprite;
+                break;
+            case 4:
+                mPlayer2GameObject.GetComponent<SpriteRenderer>().sprite = mDonkeySprite;
+                break;
+        }
+        switch (mPlayer3.ChosenAnimal)
+        {
+            case 1:
+                mPlayer3GameObject.GetComponent<SpriteRenderer>().sprite = mCatSprite;
+                break;
+            case 2:
+                mPlayer3GameObject.GetComponent<SpriteRenderer>().sprite = mDogSprite;
+                break;
+            case 3:
+                mPlayer3GameObject.GetComponent<SpriteRenderer>().sprite = mCapybaraSprite;
+                break;
+            case 4:
+                mPlayer3GameObject.GetComponent<SpriteRenderer>().sprite = mDonkeySprite;
+                break;
+        }
+        switch (mPlayer4.ChosenAnimal)
+        {
+            case 1:
+                mPlayer4GameObject.GetComponent<SpriteRenderer>().sprite = mCatSprite;
+                break;
+            case 2:
+                mPlayer4GameObject.GetComponent<SpriteRenderer>().sprite = mDogSprite;
+                break;
+            case 3:
+                mPlayer4GameObject.GetComponent<SpriteRenderer>().sprite = mCapybaraSprite;
+                break;
+            case 4:
+                mPlayer4GameObject.GetComponent<SpriteRenderer>().sprite = mDonkeySprite;
+                break;
+        }
+    }
     void doneFarmPhase()
     {
         seedField();

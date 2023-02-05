@@ -7,20 +7,26 @@ using UnityEngine.Tilemaps;
 public class PlayerControls: MonoBehaviour
 {
 
-    [SerializeField]private Tilemap groundTilemap;
-    [SerializeField]private Tilemap collisionTilemap;
+    [SerializeField] private Tilemap groundTilemap;
+    [SerializeField] private Tilemap collisionTilemap;
     [SerializeField] private PlayerActions playerActions;
-    [SerializeField] private SpawnThingOnGrid spawner;
-    [SerializeField] private GameObject testSpawnObj; // 
+    [SerializeField] public Vector2Int mPlayerPosition;
+    [SerializeField] public FarmManager mFarmManager;
 
-    [SerializeField] private List<Vector3Int> plantedSeedsPos;
+    //[SerializeField] private List<Vector3Int> plantedSeedsPos;
+    public List<Vector2Int> mBlockedSpots;
+    private PlayerAttributes mPlayerAttributes;
+    private int mMaxAp;
+    private int mCurrentAp;
+    private Vector2Int mCurrentPosition;
 
-    [SerializeField] private PlayerAttributes playerAttributes;
+    [SerializeField] Vector2Int mStartPosition;
+
 
     private void Awake() {
         playerActions = new PlayerActions();
     }
-
+    
     private void OnEnable() {
         playerActions.Enable();
     }
@@ -32,98 +38,58 @@ public class PlayerControls: MonoBehaviour
     private void Start() {
         playerActions.main.Movement.performed +=ctx => Move(ctx.ReadValue<Vector2>());
     }
-    
-    private void Move(Vector2 dir){
-        if (CanMove(dir)){
-            //testing spawn thing on player pos 
+    public void startTurn(PlayerAttributes iPlayerAttributes, List<Vector2Int> iBlockedSpots)
+    {
+        if (iPlayerAttributes.HasLeft) //TODO: add endturn logic
+            mFarmManager.endPlayerTurn(mPlayerAttributes, mCurrentPosition); 
+        this.mPlayerAttributes = iPlayerAttributes;
+        mBlockedSpots = iBlockedSpots;
+        this.mMaxAp = iPlayerAttributes.CurrentAP;
+        this.mCurrentAp = mMaxAp;
+        playerActions.Enable();
+    }
+
+    private void Move(Vector2 dir) {
+        if (CanMove(dir)) {
             Vector3Int gridPosition = groundTilemap.WorldToCell(transform.position);
             Vector3 v3 = (Vector3)gridPosition;
 
-            //spawner.SpawnThingAt(testSpawnObj, transform.position);
+            mCurrentAp--;
+            transform.position += (Vector3)dir;//moved
+            Debug.Log("AP left: " + mCurrentAp);
 
-            /*
-            //Add planted seeds to list of pos that has seeds
-            foreach(Vector3Int v3i in plantedSeedsPos)
-            {
-                if (v3i.x==gridPosition.x)
-                {
-                    Debug.Log("Already has a seed");
-                }
-                else
-                {
-                    Debug.Log("seed planted");
-                    plantedSeedsPos.Add(gridPosition);
-                    //check if it already has a thing
-                }
-            }
-            */
-
-
-            //player moves
-            //if (playerAttributes.CurrentAP > 0)
-            {
-                playerAttributes.CurrentAP--;
-                transform.position += (Vector3)dir;//moved
-                Debug.Log("AP left: " + playerAttributes.CurrentAP);
-                
-                Vector3Int newgridPosition = groundTilemap.WorldToCell(transform.position);
-                Debug.Log("player moved to" + newgridPosition + "!!");
-                if (spawner.plantedVegetableLocations.Contains(newgridPosition))
-                {
-                    Vector3 newv3 = (Vector3)newgridPosition;
-                    
-                    for(int i = 0; i < spawner.plantedVegetableLocations.Count; i++)
-                    {
-                        if(spawner.plantedVegetableLocations[i] == newv3)
-                        {
-                            Debug.Log(spawner.plantedVegetables[i].GetComponentInChildren<Vegetable>().getType() + "is at"+ newgridPosition + "!!!!");
-                        }
-                    }
-
-                }
-
-            }
-            
+            mCurrentPosition = (Vector2Int)groundTilemap.WorldToCell(transform.position);
+            Debug.Log("player moved to" + mCurrentPosition + "!!");
 
 
         }
+    }   
 
-    }
+
 
     private bool CanMove(Vector2 dir){
+
         Vector3Int gridPosition = groundTilemap.WorldToCell(transform.position + (Vector3)dir);
-        if(!groundTilemap.HasTile(gridPosition)||collisionTilemap.HasTile(gridPosition))
-            return false; //cant move if no ground tile or has a colision tile
+        foreach (Vector2Int v in mBlockedSpots)
+        {
+            if (gridPosition == new Vector3Int(v.x, v.y, 0)) return false;
+        }
+        if (!groundTilemap.HasTile(gridPosition)||collisionTilemap.HasTile(gridPosition))
+            return false; //cant move if no ground tile or has a collision tile
         return true;
     }
 
     private void Harvest()
     {
-        Vector3Int newgridPosition = groundTilemap.WorldToCell(transform.position);
-        if (spawner.plantedVegetableLocations.Contains(newgridPosition))
-        {
-            Vector3 newv3 = (Vector3)newgridPosition;
-                    
-            for(int i = 0; i < spawner.plantedVegetableLocations.Count; i++)
-            {
-                if(spawner.plantedVegetableLocations[i] == newv3)
-                {
-                    Debug.Log(spawner.plantedVegetables[i].GetComponentInChildren<Vegetable>().getType() + "is at"+ newgridPosition + "is harvested!!!!");
-                    Destroy(spawner.plantedVegetables[i]);
-                    
-                    //add score
-                    playerAttributes.playerScore += 10;
-                    Debug.Log("player score: " + playerAttributes.playerScore);
-                    
-                    spawner.plantedVegetableLocations.RemoveAt(i);
-                    spawner.plantedVegetables.RemoveAt(i);
-                }
-            }
-        }
+
     }
 
     private void Update()
     {
+        if (mCurrentAp < 1)
+        {
+            mFarmManager.endPlayerTurn(mPlayerAttributes, mCurrentPosition);
+        }
         if (Input.GetKeyDown("space"))
         {
             Harvest();
