@@ -93,45 +93,48 @@ public class MarketManager : MonoBehaviour
             int counter = 1;
             foreach (var vege in quest)
             {
+                print(vege.Key+" "+vege.Value);
                 switch (vege.Key)
                 {
                     case Vegetable.VegetableType.carrot:
-                        
+
                         spawneee.transform.GetChild(counter).GetComponent<SpriteRenderer>().sprite = vegeSprite[0];
-                        for(int j = 0; j < vege.Value; j++)
+                        for (int j = 0; j < vege.Value-1; j++)
                         {
-                            Instantiate(spawneee.transform.GetChild(counter), new Vector3(spawneee.transform.GetChild(counter).transform.position.x + 0.1f * (j + 1), spawneee.transform.GetChild(counter).transform.position.y, spawneee.transform.GetChild(counter).transform.position.z), Quaternion.identity, spawneee.transform);
+                            Instantiate(spawneee.transform.GetChild(counter),
+                                new Vector3(spawneee.transform.GetChild(counter).transform.position.x + 0.1f * (j + 1),
+                                    spawneee.transform.GetChild(counter).transform.position.y,
+                                    spawneee.transform.GetChild(counter).transform.position.z), Quaternion.identity,
+                                spawneee.transform);
                         }
-                        // print("1 "+spawneee.transform.GetChild(counter).GetChild(0));
-                        // print("2 "+ spawneee.transform.GetChild(counter).GetChild(0).GetChild(0));
-                        // print("3 "+spawneee.transform.GetChild(counter).GetChild(0).GetChild(0).GetChild(0));
-                        spawneee.transform.GetChild(counter).GetChild(0).GetChild(0).GetComponent<TMP_Text>()
-                            .SetText(" x ");
-                        ;
+
                         counter++;
                         break;
                     case Vegetable.VegetableType.potato:
                         spawneee.transform.GetChild(counter).GetComponent<SpriteRenderer>().sprite = vegeSprite[1];
 
-                        for (int j = 0; j < vege.Value; j++)
+                        for (int j = 0; j < vege.Value-1; j++)
                         {
-                            Instantiate(spawneee.transform.GetChild(counter), new Vector3(spawneee.transform.GetChild(counter).transform.position.x + 0.1f * (j + 1), spawneee.transform.GetChild(counter).transform.position.y, spawneee.transform.GetChild(counter).transform.position.z), Quaternion.identity, spawneee.transform);
+                            Instantiate(spawneee.transform.GetChild(counter),
+                                new Vector3(spawneee.transform.GetChild(counter).transform.position.x + 0.1f * (j + 1),
+                                    spawneee.transform.GetChild(counter).transform.position.y,
+                                    spawneee.transform.GetChild(counter).transform.position.z), Quaternion.identity,
+                                spawneee.transform);
                         }
-
-                        spawneee.transform.GetChild(counter).GetChild(0).GetChild(0).GetComponent<TMP_Text>()
-                            .SetText(" x ");
 
                         counter++;
                         break;
                     case Vegetable.VegetableType.turnip:
                         spawneee.transform.GetChild(counter).GetComponent<SpriteRenderer>().sprite = vegeSprite[2];
 
-                        for (int j = 0; j < vege.Value; j++)
+                        for (int j = 0; j < vege.Value-1; j++)
                         {
-                            Instantiate(spawneee.transform.GetChild(counter), new Vector3(spawneee.transform.GetChild(counter).transform.position.x + 0.1f*(j+1), spawneee.transform.GetChild(counter).transform.position.y, spawneee.transform.GetChild(counter).transform.position.z), Quaternion.identity, spawneee.transform);
+                            Instantiate(spawneee.transform.GetChild(counter),
+                                new Vector3(spawneee.transform.GetChild(counter).transform.position.x + 0.1f * (j + 1),
+                                    spawneee.transform.GetChild(counter).transform.position.y,
+                                    spawneee.transform.GetChild(counter).transform.position.z), Quaternion.identity,
+                                spawneee.transform);
                         }
-                        spawneee.transform.GetChild(counter).GetChild(0).GetChild(0).GetComponent<TMP_Text>()
-                            .SetText(" x ");
 
                         counter++;
                         break;
