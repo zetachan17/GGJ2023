@@ -2,12 +2,14 @@ using System.Collections;
 using TMPro;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
+using UnityEngine.UI;
 
 public class UIMenu : MonoBehaviour
 {
     [Header("Player Profile")]
     public TMP_Text[] playerNames;
-    public GameObject playerAvatars;
+    public GameObject[] playerAvatars;
 
 
     [Header("Inventory")]
@@ -25,22 +27,22 @@ public class UIMenu : MonoBehaviour
 
     [SerializeField]
     private PlayerInfoScriptableObject playerInfo;
+    public Sprite[] characterAvatars;
 
     // Start is called before the first frame update
     void Start()
     {
         for (int i = 0; i < 4; i++)
         {
-            /*
-            if(playerInfo. > i * 2)
+            try
             {
-                playerNames[i].text = playerInfo.
+                playerNames[i].text = playerInfo.getStringFromIndex(i * 2);
+                playerAvatars[i].GetComponent<Image>().sprite = characterAvatars[Convert.ToInt32(playerInfo.getStringFromIndex(i * 2+1))-1];
             }
-            else
+            catch(Exception ex)
             {
-                playerNames[i].text = "BUCKWHEAT";
-            }
-            */
+                Debug.Log("Player Scriptable Object Not Set Up!!");
+            } 
         }
     }
 

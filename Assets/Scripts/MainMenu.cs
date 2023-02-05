@@ -1,6 +1,7 @@
 ﻿using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 using Random = UnityEngine.Random;
 
 namespace UI.Menus
@@ -116,6 +117,7 @@ namespace UI.Menus
             else
             {
                 characterSelectTooltip.text = "Let's go!";
+                SceneManager.LoadScene("UI Temp Scene");
             }
             
 

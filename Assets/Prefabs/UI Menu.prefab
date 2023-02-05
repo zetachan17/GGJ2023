@@ -3181,7 +3181,11 @@ MonoBehaviour:
   - {fileID: 3837788056116808395}
   - {fileID: 3837788055129573042}
   - {fileID: 3837788056544703199}
-  playerAvatars: {fileID: 0}
+  playerAvatars:
+  - {fileID: 3837788056098360663}
+  - {fileID: 3837788056461596633}
+  - {fileID: 3837788056656587008}
+  - {fileID: 3837788054951923739}
   player1CarrotPotatoTurnip: []
   player2CarrotPotatoTurnip: []
   player3CarrotPotatoTurnip: []
@@ -3190,6 +3194,11 @@ MonoBehaviour:
   closePopupButton: {fileID: 0}
   quitButton: {fileID: 0}
   playerInfo: {fileID: 11400000, guid: 8c1a6e78c32ff4f42adde9fc77fe8ba8, type: 2}
+  characterAvatars:
+  - {fileID: 21300000, guid: f37470ff9a786b44580f07d5d98ec0bd, type: 3}
+  - {fileID: 21300000, guid: 0fba25845c1780f49aa945daada31359, type: 3}
+  - {fileID: 21300000, guid: b863827bbb2311b4eb4ace51776bba7e, type: 3}
+  - {fileID: 21300000, guid: 5470e4fe06859cb45a8ba8370b153419, type: 3}
 --- !u!1 &3837788055476073677
 GameObject:
   m_ObjectHideFlags: 0
