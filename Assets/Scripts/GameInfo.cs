@@ -57,20 +57,19 @@ public class GameInfo : MonoBehaviour
 
     public int mStartPlayer { get; set; }
     //Customers
-    public int mCustomer1 { get; set; }
-    public int mCustomer2 { get; set; }
-    public int mCustomer3 { get; set; }
-    public int mCustomer4 { get; set; }
-    public int mCustomer5 { get; set; }
-    public int mCustomer6 { get; set; }
+    public Customer mCustomer1 { get; set; }
+    public Customer mCustomer2 { get; set; }
+    public Customer mCustomer3 { get; set; }
+    public Customer mCustomer4 { get; set; }
+    public Customer mCustomer5 { get; set; }
+    public Customer mCustomer6 { get; set; }
 
-    public List<int> mCustomer1Demand { get; set; }
+ /* public List<int> mCustomer1Demand { get; set; }
     public List<int> mCustomer2Demand { get; set; }
     public List<int> mCustomer3Demand { get; set; }
     public List<int> mCustomer4Demand { get; set; }
     public List<int> mCustomer5Demand { get; set; }
-
-    public List<int> mCustomer6Demand { get; set; }
+    public List<int> mCustomer6Demand { get; set; }*/
 
     // Start is called before the first frame update
     void Awake()
@@ -79,6 +78,11 @@ public class GameInfo : MonoBehaviour
         DontDestroyOnLoad(gameObject);
         Instance = this;
         mRound = 1;
+        mStartPlayer = Random.Range(1, 5);
+        mPlayer1 = new PlayerAttributes();
+        mPlayer2 = new PlayerAttributes();
+        mPlayer3 = new PlayerAttributes();
+        mPlayer4 = new PlayerAttributes();
     }
 
 
