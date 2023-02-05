@@ -27,6 +27,11 @@ public class PlayerInfoScriptableObject : ScriptableObject
         playerAttributesList.Add(newName);
         playerAttributesList.Add(choseAnimal.ToString());
     }
+    
+    public string getStringFromIndex(int i)
+    {
+        return playerAttributesList[i];
+    } 
 }
 
 
