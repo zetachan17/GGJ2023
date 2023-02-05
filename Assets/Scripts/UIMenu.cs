@@ -70,40 +70,44 @@ public class UIMenu : MonoBehaviour
     }
 
 
-    public void NextTurn()
+    public void UpdateTurnIndicator()
     {
 
         Vector2 pos = turnIndicator.GetComponent<RectTransform>().localPosition;
-        if(pos.x < 0 && pos.y > 0)
+        GameObject fm = GameObject.Find("FarmManager");
+        if (fm.GetComponent<FarmManager>().mActivePlayer == 2)
         {
             turnIndicator.GetComponent<RectTransform>().localPosition = new Vector2(800, 80);
             turnIndicator.GetComponent<RectTransform>().rotation = Quaternion.Euler(new Vector3(0, 0, 0));
             turnText.text = playerNames[1].text + "'s Turn!";
         }
-        if (pos.x > 0 && pos.y > 0)
+        if (fm.GetComponent<FarmManager>().mActivePlayer == 3)
         {
             turnIndicator.GetComponent<RectTransform>().localPosition = new Vector2(800, -80);
             turnIndicator.GetComponent<RectTransform>().rotation = Quaternion.Euler(new Vector3(0, 0, 180));
             turnText.text = playerNames[2].text + "'s Turn!";
         }
-        if (pos.x > 0 && pos.y < 0)
+        if (fm.GetComponent<FarmManager>().mActivePlayer == 4)
         {
             turnIndicator.GetComponent<RectTransform>().localPosition = new Vector2(-800, -80);
             turnIndicator.GetComponent<RectTransform>().rotation = Quaternion.Euler(new Vector3(0, 0, 180));
             turnText.text = playerNames[3].text + "'s Turn!";
         }
-        if (pos.x < 0 && pos.y < 0)
+        if (fm.GetComponent<FarmManager>().mActivePlayer == 1)
         {
             turnIndicator.GetComponent<RectTransform>().localPosition = new Vector2(-800, 80);
             turnIndicator.GetComponent<RectTransform>().rotation = Quaternion.Euler(new Vector3(0, 0, 0));
             turnText.text = playerNames[0].text + "'s Turn!";
         }
-        CallUpdateUI();
     }
 
     public void CallUpdateUI()
     {
-
+        if (SceneManager.GetActiveScene() == SceneManager.GetSceneByName("FarmScene"))
+        {
+            UpdateTurnIndicator();
+        }
+        
         gameinfo = GameInfo.Instance;
         //this could be a loop or something less ugly but it's a game jam so whatever
 
