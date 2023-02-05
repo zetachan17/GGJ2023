@@ -166,6 +166,17 @@ namespace UI.Menus
             audios[4].Play();
         }
         
+        public void OnInstructionsClicked()
+        {
+            startPanel.SetActive(false);
+            instructionPanel.SetActive(true);
+        }
+
+        public void OnInstructionsExitClicked()
+        {
+            startPanel.SetActive(true);
+            instructionPanel.SetActive(false);
+        }
 
         public void OnQuitButtonClicked()
         {
