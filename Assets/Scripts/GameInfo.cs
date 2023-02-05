@@ -10,7 +10,7 @@ public class GameInfo : MonoBehaviour
     public static GameInfo Instance;
 
     //FarmContents
-    public List<KeyValuePair<Vector2Int, Vector2Int>> mFarmContents { get; set; }
+    public Dictionary<Vector2Int, Vector2Int> mFarmContents { get; set; }
 
     //PlayerInfo
 
@@ -75,9 +75,12 @@ public class GameInfo : MonoBehaviour
     // Start is called before the first frame update
     void Awake()
     {
+        mFarmContents = new Dictionary<Vector2Int, Vector2Int>();
         DontDestroyOnLoad(gameObject);
         Instance = this;
+        mRound = 1;
     }
+
 
     // Update is called once per frame
 

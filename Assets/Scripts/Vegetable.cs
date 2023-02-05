@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 using UnityEngine.EventSystems;
+using System;
 
 public class Vegetable : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 {
@@ -135,6 +136,11 @@ public class Vegetable : MonoBehaviour, IPointerEnterHandler, IPointerExitHandle
             mTimerStarted = true;
             mTimerStartTime = Time.time;
         }
+    }
+
+    internal void setSize(int iRandomVegSize)
+    {
+        mSize = iRandomVegSize;
     }
 
     public void OnPointerExit(PointerEventData eventData)
