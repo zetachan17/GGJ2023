@@ -188,8 +188,11 @@ public class UIMenu : MonoBehaviour
             {
                 GameObject.Find("Go To Market Button").SetActive(false);
             }
-           
-            GameObject.Find("End Turn Button").SetActive(false);
+            if (GameObject.Find("End Turn Button"))
+            {
+                GameObject.Find("End Turn Button").SetActive(false);
+            }
+            
         }
 
         if (SceneManager.GetActiveScene() == SceneManager.GetSceneByName("FarmScene"))
