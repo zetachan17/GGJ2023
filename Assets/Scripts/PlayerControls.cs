@@ -46,7 +46,7 @@ public class PlayerControls: MonoBehaviour
     }
     public void startTurn(PlayerAttributes iPlayerAttributes, List<Vector2Int> iBlockedSpots)
     {
-        GoHomeButton = GameObject.Find("Go To Market Button");
+        GoHomeButton = GameObject.Find("MarketButton");
         GoHomeButton.SetActive(false);
         if (iPlayerAttributes.HasLeft) //TODO: add endturn logic
             mFarmManager.endPlayerTurn(mPlayerAttributes, mCurrentPosition); 

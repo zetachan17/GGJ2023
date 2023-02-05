@@ -6149,6 +6149,22 @@ PrefabInstance:
       propertyPath: player4CarrotPotatoTurnip.Array.size
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 2963862419768719874, guid: a152e6c0e7c0d3b4aa6c11fef1153114, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2963862419768719874, guid: a152e6c0e7c0d3b4aa6c11fef1153114, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2963862419768719874, guid: a152e6c0e7c0d3b4aa6c11fef1153114, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2963862419768719874, guid: a152e6c0e7c0d3b4aa6c11fef1153114, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3837788054793557342, guid: a152e6c0e7c0d3b4aa6c11fef1153114, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -7518,6 +7534,22 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4280064025130719760, guid: a152e6c0e7c0d3b4aa6c11fef1153114, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7299878434020522796, guid: a152e6c0e7c0d3b4aa6c11fef1153114, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7299878434020522796, guid: a152e6c0e7c0d3b4aa6c11fef1153114, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7299878434020522796, guid: a152e6c0e7c0d3b4aa6c11fef1153114, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7299878434020522796, guid: a152e6c0e7c0d3b4aa6c11fef1153114, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
