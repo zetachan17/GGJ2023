@@ -28,6 +28,9 @@ public class PlayerAttributes : MonoBehaviour
     //int player leave order
     public int playerLeaveOrder;
     
+    //int player score
+    public int playerScore;
+    
     // Start is called before the first frame update
     void Start()
     {

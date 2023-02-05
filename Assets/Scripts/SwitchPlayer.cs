@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
@@ -12,7 +13,7 @@ public class SwitchPlayer : MonoBehaviour
     
     private List<GameObject> players = new List<GameObject>();
     private int playerCount;
-    private GameObject activePlayer;
+    public GameObject activePlayer;
     
     // Start is called before the first frame update
     void Start()
@@ -23,6 +24,16 @@ public class SwitchPlayer : MonoBehaviour
         players.Add(player4);
         activePlayer = player1;
         playerCount = 0;
+    }
+
+    private void Update()
+    {
+        if (Input.GetKeyDown("tab"))
+        {
+            Switch();
+        }
+        
+        Debug.Log(activePlayer);
     }
 
     public void Switch()

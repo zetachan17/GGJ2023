@@ -95,4 +95,9 @@ public class PlayerControls: MonoBehaviour
             return false; //cant move if no ground tile or has a colision tile
         return true;
     }
+
+    private void Harvest()
+    {
+        //spawner.plantedVegetables[i].GetComponentInChildren<Vegetable>().getType();
+    }
 }
