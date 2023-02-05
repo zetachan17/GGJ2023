@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
 using Random = System.Random;
@@ -10,9 +11,13 @@ public class MarketManager : MonoBehaviour
 {
     public GameObject spawnee;
 
+    public GameObject vegeList;
+
     public Sprite[] mySpr;
 
     public Sprite[] powerSprites;
+
+    public Sprite[] vegeSprite;
 
     // Start is called before the first frame update
     void Start()
@@ -56,7 +61,7 @@ public class MarketManager : MonoBehaviour
 
             string power = spawneee.GetComponent<Customer>().getPower();
             print(power);
-            if (!power.Equals("Null"))
+            if (!power.Equals("None"))
             {
                 switch (power)
                 {
@@ -83,16 +88,74 @@ public class MarketManager : MonoBehaviour
                         break;
                 }
             }
+
+            Dictionary<Vegetable.VegetableType, int> quest = spawneee.GetComponent<Customer>().getQuest();
+            int counter = 1;
+            foreach (var vege in quest)
+            {
+                switch (vege.Key)
+                {
+                    case Vegetable.VegetableType.carrot:
+                        spawneee.transform.GetChild(counter).GetComponent<SpriteRenderer>().sprite = vegeSprite[0];
+                        // print("1 "+spawneee.transform.GetChild(counter).GetChild(0));
+                        // print("2 "+ spawneee.transform.GetChild(counter).GetChild(0).GetChild(0));
+                        // print("3 "+spawneee.transform.GetChild(counter).GetChild(0).GetChild(0).GetChild(0));
+                        spawneee.transform.GetChild(counter).GetChild(0).GetChild(0).GetComponent<TMP_Text>()
+                            .SetText(" x ");
+                        ;
+                        counter++;
+                        break;
+                    case Vegetable.VegetableType.potato:
+                        spawneee.transform.GetChild(counter).GetComponent<SpriteRenderer>().sprite = vegeSprite[1];
+                        spawneee.transform.GetChild(counter).GetChild(0).GetChild(0).GetComponent<TMP_Text>()
+                            .SetText(" x ");
+
+                        counter++;
+                        break;
+                    case Vegetable.VegetableType.turnip:
+                        spawneee.transform.GetChild(counter).GetComponent<SpriteRenderer>().sprite = vegeSprite[2];
+                        spawneee.transform.GetChild(counter).GetChild(0).GetChild(0).GetComponent<TMP_Text>()
+                            .SetText(" x ");
+
+                        counter++;
+                        break;
+                }
+            }
+
+            while (counter <= 3)
+            {
+                spawneee.transform.GetChild(counter).GetComponent<SpriteRenderer>().sprite = null;
+                counter++;
+            }
         }
 
         GameObject coolGuy = Instantiate(spawnee, customersPos[6], transform.rotation);
         coolGuy.AddComponent<Customer>().SetUpCustomers(12);
         coolGuy.GetComponent<SpriteRenderer>().sprite = mySpr[11];
         coolGuy.transform.GetChild(0).GetComponent<SpriteRenderer>().sprite = powerSprites[7];
+        foreach (var vege in coolGuy.GetComponent<Customer>().getQuest())
+        {
+            switch (vege.Key)
+            {
+                case Vegetable.VegetableType.carrot:
+                    coolGuy.transform.GetChild(1).GetComponent<SpriteRenderer>().sprite = vegeSprite[0];
+                    break;
+                case Vegetable.VegetableType.potato:
+                    coolGuy.transform.GetChild(2).GetComponent<SpriteRenderer>().sprite = vegeSprite[1];
+                    break;
+                case Vegetable.VegetableType.turnip:
+                    coolGuy.transform.GetChild(3).GetComponent<SpriteRenderer>().sprite = vegeSprite[2];
+                    break;
+            }
+        }
+
 
         GameObject soupGuy = Instantiate(spawnee, customersPos[7], transform.rotation);
         soupGuy.AddComponent<Customer>().SetUpCustomers(13);
         soupGuy.GetComponent<SpriteRenderer>().sprite = mySpr[12];
+        soupGuy.transform.GetChild(1).GetComponent<SpriteRenderer>().sprite = null;
+        soupGuy.transform.GetChild(2).GetComponent<SpriteRenderer>().sprite = null;
+        soupGuy.transform.GetChild(3).GetComponent<SpriteRenderer>().sprite = null;
     }
 
 

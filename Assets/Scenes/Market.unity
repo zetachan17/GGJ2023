@@ -377,6 +377,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spawnee: {fileID: 7647045827350490550, guid: c38915ff3eb30463698a12da3b0796cd, type: 3}
+  vegeList: {fileID: 1947455200129212911, guid: 0fafe9696a4e24ac48316dabf235256d, type: 3}
   mySpr:
   - {fileID: 21300000, guid: 1629ab7f54d1941b990e4a02d6a3d64f, type: 3}
   - {fileID: 21300000, guid: f2aee022ec65d4734bb60e534cb7f46f, type: 3}
@@ -400,6 +401,10 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 1fd841a03472144e4b0df43a2bd17e87, type: 3}
   - {fileID: 21300000, guid: 81bb9acfc2c784270ac26a309a18c6ea, type: 3}
   - {fileID: 21300000, guid: b73a5752e0dd847a0a3f233bd62091cc, type: 3}
+  vegeSprite:
+  - {fileID: 21300000, guid: ca59fda0a1f8a3c46a368e216b9cb630, type: 3}
+  - {fileID: 21300000, guid: e90fda7041576e74fbc4120342df01d9, type: 3}
+  - {fileID: 21300000, guid: a7f39751b306cdd4dad7da68c5073f57, type: 3}
 --- !u!212 &1256389455
 SpriteRenderer:
   m_ObjectHideFlags: 0
