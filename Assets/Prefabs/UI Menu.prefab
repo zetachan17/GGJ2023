@@ -3245,7 +3245,7 @@ MonoBehaviour:
   turnIndicator: {fileID: 4998352146659437893}
   turnText: {fileID: 5647808758645832111}
   apTextForActionyTimes: {fileID: 7301074251451111120}
-  roundTurnIndicator: {fileID: 0}
+  roundTurnIndicator: {fileID: 4280064025632289310}
   gameinfo: {fileID: 0}
   characterAvatars:
   - {fileID: 21300000, guid: 35b6a4d33c4593642871bd6470416fe4, type: 3}
@@ -8262,3 +8262,14 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 2726616304004374403, guid: 4684c9d3f5706154985bd417a15083bb, type: 3}
   m_PrefabInstance: {fileID: 2212169671986873911}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &4280064025632289310 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2726616305600181289, guid: 4684c9d3f5706154985bd417a15083bb, type: 3}
+  m_PrefabInstance: {fileID: 2212169671986873911}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

@@ -10,7 +10,6 @@ using UnityEngine.SceneManagement;
 public class UIMenu : MonoBehaviour
 {
     public static UIMenu Instance;
-    
 
     [Header("Player Profile")]
     public TMP_Text[] playerNames;
@@ -160,11 +159,16 @@ public class UIMenu : MonoBehaviour
         playerScores[2].text = "Score: " + gameinfo.mPlayer3.playerScore;
         playerScores[3].text = "Score: " + gameinfo.mPlayer4.playerScore;
 
+        
+
        
 
         if(SceneManager.GetActiveScene() == SceneManager.GetSceneByName("FarmScene"))
         {
             GameObject fm = GameObject.Find("FarmManager");
+            roundTurnIndicator.text = "Round 1 Turn " + fm.GetComponent<FarmManager>().mTurn;
+
+            
             apTextForActionyTimes.text = fm.GetComponent<FarmManager>().getActivePlayer().mCurrentAp + " Action Points Remaining!";
         }
 
@@ -174,5 +178,23 @@ public class UIMenu : MonoBehaviour
     void Update()
     {
         CallUpdateUI();
+
+        if (SceneManager.GetActiveScene() == SceneManager.GetSceneByName("Market"))
+        {
+            roundTurnIndicator.gameObject.SetActive(false);
+            turnText.gameObject.SetActive(false);
+            apTextForActionyTimes.gameObject.SetActive(false);
+            GameObject.Find("Go To Market Button").SetActive(false);
+            GameObject.Find("End Turn Button").SetActive(false);
+        }
+
+        if (SceneManager.GetActiveScene() == SceneManager.GetSceneByName("FarmScene"))
+        {
+            roundTurnIndicator.gameObject.SetActive(true);
+            turnText.gameObject.SetActive(true);
+            apTextForActionyTimes.gameObject.SetActive(true);
+            GameObject.Find("End Turn Button").SetActive(true);
+        }
     }
+
 }
