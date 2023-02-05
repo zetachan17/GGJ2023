@@ -45,6 +45,8 @@ public class PlayerControls: MonoBehaviour
     }
     public void startTurn(PlayerAttributes iPlayerAttributes, List<Vector2Int> iBlockedSpots)
     {
+        Vector3 wTempVec = (transform.position - new Vector3(1.5f, -6.5f, 0f));
+        mCurrentPosition = new Vector2Int((int)wTempVec.x, (int)wTempVec.y);
         if (mCurrentPosition == mStartPosition) mFarmManager.setHomeButtonActive(true);
         else mFarmManager.setHomeButtonActive(false);
         if (iPlayerAttributes.HasLeft) //TODO: add endturn logic
