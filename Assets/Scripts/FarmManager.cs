@@ -188,6 +188,11 @@ public class FarmManager : MonoBehaviour
 
     }
 
+    public void harvestVegetable(Vector2Int iPosition)
+    {
+        mFarmContents.Remove(iPosition);
+    }
+
     void growField()
     {
         foreach (KeyValuePair<Vector2Int, Vector2Int> wEntry in mFarmContents)
