@@ -15,10 +15,6 @@ public class PlayerAttributes : MonoBehaviour
     private int currentAP;
 
     //a enum that has powers
-    public enum Power
-    {
-
-    }
 
     //a list of all the vegetables the player has
     private List<Vegetable> vegetables = new List<Vegetable>();
