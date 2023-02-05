@@ -32,13 +32,12 @@ public class SwitchPlayer : MonoBehaviour
         {
             Switch();
         }
-        
-        Debug.Log(activePlayer);
     }
 
     public void Switch()
     {
         DisableInput(activePlayer);
+        playerCount++;
         switch (playerCount % 4)
         {
             case 0:
@@ -57,7 +56,6 @@ public class SwitchPlayer : MonoBehaviour
             
         Debug.Log("Player " + (playerCount % 4 + 1) + " is active");
         ActiveInput(activePlayer);
-        playerCount++;
     }
     
     private void ActiveInput(GameObject player)
