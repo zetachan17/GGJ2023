@@ -68,7 +68,7 @@ namespace UI.Menus
         {
             string newName = nameInputField.text;
 
-            string[] defaultNames = { "BUCKWHEAT", "WHISKERS", "REX", "BILLY BOY", "JEB", "FRANCOIS", "BIG BERTHA", "BLITZ" };
+            string[] defaultNames = { "WHISKERS", "REX", "BUCKWHEAT", "BIG BERTHA" };
 
             // If provided name is empty, pick a default name
             if (newName != string.Empty)
@@ -87,7 +87,7 @@ namespace UI.Menus
             }
             else
             {
-                newName = defaultNames[Random.Range(0, defaultNames.Length-1)];
+                newName = defaultNames[chosenAnimal-1];
             }
 
             charNamePlates[chosenAnimal-1].text = newName;
