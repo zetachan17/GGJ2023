@@ -18,7 +18,7 @@ public class PlayerAttributes
     //a enum that has powers
 
     //a list of all the vegetables the player has
-    private List<Vegetable> vegetables = new List<Vegetable>();
+    private List<Vector2Int> vegetables = new List<Vector2Int>();
     
     // a list of powers the player has
     private List<Power> powers = new List<Power>();
@@ -45,22 +45,22 @@ public class PlayerAttributes
     }
 
     //getters and setters
-    public List<Vegetable> Vegetables
+    public List<Vector2Int> Vegetables
     {
         get => vegetables;
         set => vegetables = value;
     }
 
     //add a vegetable to the list
-    public void AddVegetable(Vegetable vegetable)
+    public void AddVegetable(Vector2Int iVeg)
     {
-        vegetables.Add(vegetable);
+        vegetables.Add(iVeg);
     }
 
     //remove a vegetable from the list
-    public void RemoveVegetable(Vegetable vegetable)
+    public void RemoveVegetable(Vector2Int iVeg)
     {
-        vegetables.Remove(vegetable);
+        vegetables.Remove(iVeg);
     }
     
     //getter and setter for the player name

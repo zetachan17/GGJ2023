@@ -22,9 +22,11 @@ public class PlayerControls: MonoBehaviour
 
     [SerializeField] Vector2Int mStartPosition;
 
+    BoxCollider2D mCollider;
 
     private void Awake() {
         playerActions = new PlayerActions();
+        mCollider = GetComponent<BoxCollider2D>();
     }
     
     private void OnEnable() {
@@ -56,10 +58,11 @@ public class PlayerControls: MonoBehaviour
 
             mCurrentAp--;
             transform.position += (Vector3)dir;//moved
-            Debug.Log("AP left: " + mCurrentAp);
+            //Debug.Log("player moved to" + gridPosition + "!!");
 
-            mCurrentPosition = (Vector2Int)groundTilemap.WorldToCell(transform.position);
-            Debug.Log("player moved to" + mCurrentPosition + "!!");
+            Vector3 wTempVec = (transform.position - new Vector3(1.5f, -6.5f, 0f));
+            mCurrentPosition = new Vector2Int((int)wTempVec.x, (int)wTempVec.y);
+            //Debug.Log("player moved to" + mCurrentPosition + "!!");
 
 
         }
@@ -72,7 +75,7 @@ public class PlayerControls: MonoBehaviour
         Vector3Int gridPosition = groundTilemap.WorldToCell(transform.position + (Vector3)dir);
         foreach (Vector2Int v in mBlockedSpots)
         {
-            if (gridPosition == new Vector3Int(v.x, v.y, 0)) return false;
+            if (transform.position + (Vector3)dir == new Vector3(v.x + 1.5f, v.y - 6.5f, 0f)) return false; // Can't move if other player present
         }
         if (!groundTilemap.HasTile(gridPosition)||collisionTilemap.HasTile(gridPosition))
             return false; //cant move if no ground tile or has a collision tile
@@ -81,7 +84,22 @@ public class PlayerControls: MonoBehaviour
 
     private void Harvest()
     {
+        if (mFarmManager.mFarmContents.ContainsKey(mCurrentPosition))
+        {
+            Vector2Int wTempVegInfo = mFarmManager.mFarmContents[mCurrentPosition];
+            if (mCurrentAp >= wTempVegInfo.y)
+            {
+                mPlayerAttributes.AddVegetable(wTempVegInfo);
+                mCurrentAp -= wTempVegInfo.y;
+                mFarmManager.harvestVegetable(mCurrentPosition);
+                GameObject wTempGameObject = GameObject.Find("Veg_" + mCurrentPosition.x + "_" + mCurrentPosition.y);
+                if (wTempGameObject)
+                {
+                    Destroy(wTempGameObject.gameObject);
+                }
 
+            }
+        }
     }
 
     private void Update()
