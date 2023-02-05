@@ -2,8 +2,8 @@ using System;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerAttributes : MonoBehaviour
-{
+public class PlayerAttributes { 
+
     [SerializeField] private string playerName;
     [SerializeField] private int chosenAnimal;
     

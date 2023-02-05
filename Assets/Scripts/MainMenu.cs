@@ -11,6 +11,9 @@ namespace UI.Menus
     /// </summary>
     public class MainMenu : MonoBehaviour
     {
+        UIMenu uimenu;
+        GameInfo gameinfo;
+
         [Header("General Settings")] 
         byte maxPlayers = 0;
         
@@ -53,8 +56,11 @@ namespace UI.Menus
         private PlayerInfoScriptableObject playerManager;
         public void Awake()
         {
+            gameinfo = GameInfo.Instance;
+            uimenu = GameObject.Find("UI Menu").GetComponent<UIMenu>();
             SetActivePanel(startPanel);
             audios = audioManager.GetComponents<AudioSource>();
+            uimenu.gameObject.SetActive(false);
         }
 
         public void Update()
@@ -109,6 +115,23 @@ namespace UI.Menus
             
             charSelectButtons[chosenAnimal-1].GetComponent<Button>().enabled = false;
             charSelectButtons[chosenAnimal - 1].GetComponent<Image>().color = Color.gray;
+
+            switch (currentPlayer)
+            {
+                case 1:
+                    gameinfo.mPlayer1 = new PlayerAttributes(newName, chosenAnimal);
+                    break;
+                case 2:
+                    gameinfo.mPlayer2 = new PlayerAttributes(newName, chosenAnimal);
+                    break;
+                case 3:
+                    gameinfo.mPlayer3 = new PlayerAttributes(newName, chosenAnimal);
+                    break;
+                case 4:
+                    gameinfo.mPlayer4 = new PlayerAttributes(newName, chosenAnimal);
+                    break;
+            }
+
             currentPlayer++;
             if(currentPlayer < 5)
             {
@@ -117,12 +140,15 @@ namespace UI.Menus
             else
             {
                 characterSelectTooltip.text = "Let's go!";
-                SceneManager.LoadScene("UI Temp Scene");
+                uimenu.gameObject.SetActive(true);
+                SceneManager.LoadScene("FarmScene");
             }
-            
 
-            //TO-DO: SET UP A PLAYER
-            playerManager.AddPlayer(newName, chosenAnimal);
+
+            //deprecated ScriptableObject
+            //playerManager.AddPlayer(newName, chosenAnimal);
+
+            uimenu.CallUpdateUI();
             
             nameEditorPopup.SetActive(false);
         }
