@@ -146,7 +146,7 @@ public class UIMenu : MonoBehaviour
         if(SceneManager.GetActiveScene() == SceneManager.GetSceneByName("FarmScene"))
         {
             GameObject fm = GameObject.Find("FarmManager");
-            apTextForActionyTimes.text = fm.GetComponent<FarmManager>().getActivePlayer().CurrentAP + " Action Points Remaining!";
+            apTextForActionyTimes.text = fm.GetComponent<FarmManager>().getActivePlayer().mCurrentAp + " Action Points Remaining!";
         }
 
     }

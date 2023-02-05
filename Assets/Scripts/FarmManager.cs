@@ -33,6 +33,11 @@ public class FarmManager : MonoBehaviour
     [SerializeField] Sprite mDonkeySprite;
 
 
+    Dictionary<int, Vector2Int> mPlayerLocations = new Dictionary<int, Vector2Int>();
+    
+
+    public int mHowManyPlayersHaveLeft = 0;
+
     private void Awake()
     {
 
@@ -42,6 +47,11 @@ public class FarmManager : MonoBehaviour
 
     void Start()
     {
+        mPlayerLocations.Add(1, new Vector2Int(0, 8));
+        mPlayerLocations.Add(2, new Vector2Int(8, 8));
+        mPlayerLocations.Add(3, new Vector2Int(8, 0));
+        mPlayerLocations.Add(4, new Vector2Int(0, 0));
+
         mRound = GameInfo.Instance.mRound;
         mStartPlayer = GameInfo.Instance.mStartPlayer;
         mPlayer1 = GameInfo.Instance.mPlayer1;
@@ -49,6 +59,7 @@ public class FarmManager : MonoBehaviour
         mPlayer3 = GameInfo.Instance.mPlayer3;
         mPlayer4 = GameInfo.Instance.mPlayer4;
         mTurn = 1;
+        mHowManyPlayersHaveLeft = 0;
         setPlayerObjectSprites();
         mActivePlayer = mStartPlayer;
         if (mRound == 1)
@@ -64,6 +75,7 @@ public class FarmManager : MonoBehaviour
             mStartPlayer = GameInfo.Instance.mStartPlayer;
         }
         //TODO: Check if any player has teleport power
+        getActivePlayer().enabled = true;
     }
 
     // Update is called once per frame
@@ -72,12 +84,28 @@ public class FarmManager : MonoBehaviour
 
     }
 
-    public PlayerAttributes getActivePlayer()
+    public PlayerControls getActivePlayer()
     {
         switch (mActivePlayer)
         {
             case 1:
-                return mPlayer1;
+                return mPlayer1GameObject.GetComponent<PlayerControls>();
+            case 2:
+                return mPlayer2GameObject.GetComponent<PlayerControls>();
+            case 3:
+                return mPlayer3GameObject.GetComponent<PlayerControls>();
+            case 4:
+                return mPlayer4GameObject.GetComponent<PlayerControls>();
+            default:
+                return mPlayer1GameObject.GetComponent<PlayerControls>();
+        }
+    }
+    public PlayerAttributes getActivePlayerAttributes()
+    {
+        switch (mActivePlayer)
+        {
+            case 1:
+                return mPlayer1; 
             case 2:
                 return mPlayer2;
             case 3:
@@ -85,16 +113,46 @@ public class FarmManager : MonoBehaviour
             case 4:
                 return mPlayer4;
             default:
-                return mPlayer1;
+                return mPlayer1; 
         }
     }
 
     public void endPlayerTurn(PlayerAttributes iPlayerAttributes, Vector2Int iPlayerPosition)
     {
+        getActivePlayer().enabled = false;
+        mPlayerLocations.Remove(mActivePlayer);
+        mPlayerLocations.Add(mActivePlayer, iPlayerPosition);
+        switch (mActivePlayer)
+        {
+            case 1:
+                mPlayer1 = iPlayerAttributes;
+                break;
+            case 2:
+                mPlayer2 = iPlayerAttributes;
+                break;
+            case 3:
+                mPlayer3 = iPlayerAttributes;
+                break;
+            case 4:
+                mPlayer4 = iPlayerAttributes;
+                break;
+        }
         mActivePlayer++;
+        
         if (mActivePlayer == 5) mActivePlayer = 1;
         if (mActivePlayer == mStartPlayer) mTurn++;
-        if (mTurn == 6) doneFarmPhase();
+        if (mTurn >= 6) doneFarmPhase();
+        else
+        {
+            getActivePlayer().enabled = true;
+            List<Vector2Int> wBlockedLocations = new List<Vector2Int>();
+            foreach (KeyValuePair<int, Vector2Int> wPosition in mPlayerLocations)
+            {
+                if (wPosition.Key != mActivePlayer) wBlockedLocations.Add(wPosition.Value);
+            }
+            getActivePlayer().startTurn(getActivePlayerAttributes(), wBlockedLocations);
+        }
+        Debug.Log("mturn: " + mTurn + " mActivePlayer = " + mActivePlayer);
 
     }
 
@@ -310,4 +368,11 @@ public class FarmManager : MonoBehaviour
         GameInfo.Instance.mPlayer4 = mPlayer4;
         SceneManager.LoadScene("MarketScene");
     }
+
+    public void GoHomeButtonPressed()
+    {
+        getActivePlayer().sendHome();
+
+    }
+
 }

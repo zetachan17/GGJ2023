@@ -13,16 +13,20 @@ public class PlayerControls: MonoBehaviour
     [SerializeField] public Vector2Int mPlayerPosition;
     [SerializeField] public FarmManager mFarmManager;
 
+    [SerializeField] public GameObject GoHomeButton;
+
     //[SerializeField] private List<Vector3Int> plantedSeedsPos;
     public List<Vector2Int> mBlockedSpots;
     private PlayerAttributes mPlayerAttributes = new PlayerAttributes();
     private int mMaxAp = 6;
-    private int mCurrentAp = 6;
+    public int mCurrentAp = 6;
     private Vector2Int mCurrentPosition;
 
     [SerializeField] Vector2Int mStartPosition;
 
     BoxCollider2D mCollider;
+
+    bool mOnHomeTile;
 
     private void Awake() {
         playerActions = new PlayerActions();
@@ -46,9 +50,8 @@ public class PlayerControls: MonoBehaviour
             mFarmManager.endPlayerTurn(mPlayerAttributes, mCurrentPosition); 
         this.mPlayerAttributes = iPlayerAttributes;
         mBlockedSpots = iBlockedSpots;
-        this.mMaxAp = iPlayerAttributes.CurrentAP;
         this.mCurrentAp = mMaxAp;
-        playerActions.Enable();
+
     }
 
     private void Move(Vector2 dir) {
@@ -100,6 +103,13 @@ public class PlayerControls: MonoBehaviour
 
             }
         }
+    }
+
+    public void sendHome()
+    {
+        mPlayerAttributes.HasLeft = true;
+        mPlayerAttributes.playerLeaveOrder = mFarmManager.mHowManyPlayersHaveLeft;
+        mFarmManager.mHowManyPlayersHaveLeft++;
     }
 
     private void Update()
