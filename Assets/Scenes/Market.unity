@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657874, g: 0.49641275, b: 0.5748172, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -384,23 +384,23 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 493323c8952505e439e6d95c03ebb6ab, type: 3}
   - {fileID: 21300000, guid: 00a698110a8b9ee48969a73f0ad637e7, type: 3}
   - {fileID: 21300000, guid: 74fdf85358bf49a4abc6b7e9cdd39f99, type: 3}
-  - {fileID: 21300000, guid: 5d824a2a4b4864affbd4fd62d1422c41, type: 3}
-  - {fileID: 21300000, guid: b3d7ae43e8c294bbaa4d3bd616a4c7ec, type: 3}
+  - {fileID: 21300000, guid: 1808ea92efc2c4d35bdcdf9ad03cb892, type: 3}
+  - {fileID: 21300000, guid: 51cc3293e1dd14763be93f462113dbd8, type: 3}
   - {fileID: 21300000, guid: 7d2989f83ebb95849a9ec0f32e3a3911, type: 3}
   - {fileID: 21300000, guid: f963ed9c516a64248a4f9f842880c80f, type: 3}
   - {fileID: 21300000, guid: 5ab73cb929bf928439ac5f49033943a7, type: 3}
-  - {fileID: 21300000, guid: 1fd841a03472144e4b0df43a2bd17e87, type: 3}
-  - {fileID: 21300000, guid: 735b1f55f6fa14ffbaac711653d80a5a, type: 3}
+  - {fileID: 21300000, guid: 1808ea92efc2c4d35bdcdf9ad03cb892, type: 3}
+  - {fileID: 21300000, guid: d932081a096e4b24aa3ddd4cc7c22245, type: 3}
   - {fileID: 21300000, guid: 24dd7136475eb4341abfedeb82c43ce4, type: 3}
   powerSprites:
-  - {fileID: 21300000, guid: 1629ab7f54d1941b990e4a02d6a3d64f, type: 3}
-  - {fileID: 21300000, guid: f2aee022ec65d4734bb60e534cb7f46f, type: 3}
-  - {fileID: 21300000, guid: 68560f364d3fe40d5a5b06f4ec3186eb, type: 3}
-  - {fileID: 21300000, guid: ba5acac14d61143edb5afcc5d6a5fcb3, type: 3}
-  - {fileID: 21300000, guid: 0a5f6a52ece5c413ab9a9223da407a20, type: 3}
-  - {fileID: 21300000, guid: 1fd841a03472144e4b0df43a2bd17e87, type: 3}
-  - {fileID: 21300000, guid: 81bb9acfc2c784270ac26a309a18c6ea, type: 3}
-  - {fileID: 21300000, guid: b73a5752e0dd847a0a3f233bd62091cc, type: 3}
+  - {fileID: 21300000, guid: 22031bcd26ce14bbc99138e71af0aeff, type: 3}
+  - {fileID: 21300000, guid: 6da6bb0f8c1e64f068f5040c4fd1df98, type: 3}
+  - {fileID: 21300000, guid: 07bcd1cee14414d9789fa1115e739f73, type: 3}
+  - {fileID: 21300000, guid: 07bcd1cee14414d9789fa1115e739f73, type: 3}
+  - {fileID: 21300000, guid: b2b0a5b17d99e4e5cb6ef20056ba5ec5, type: 3}
+  - {fileID: 21300000, guid: e116671e9f7814aaca64fa3bf98e543c, type: 3}
+  - {fileID: 21300000, guid: 7678bbfb167a94044ade1f5319c0fbe3, type: 3}
+  - {fileID: 21300000, guid: 7678bbfb167a94044ade1f5319c0fbe3, type: 3}
   vegeSprite:
   - {fileID: 21300000, guid: ca59fda0a1f8a3c46a368e216b9cb630, type: 3}
   - {fileID: 21300000, guid: e90fda7041576e74fbc4120342df01d9, type: 3}

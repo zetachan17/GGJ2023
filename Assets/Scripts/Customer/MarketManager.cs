@@ -88,6 +88,10 @@ public class MarketManager : MonoBehaviour
                         break;
                 }
             }
+            else
+            {
+                spawneee.transform.GetChild(0).GetComponent<SpriteRenderer>().sprite = null;
+            }
 
             Dictionary<Vegetable.VegetableType, int> quest = spawneee.GetComponent<Customer>().getQuest();
             int counter = 1;
@@ -175,6 +179,7 @@ public class MarketManager : MonoBehaviour
         soupGuy.transform.GetChild(1).GetComponent<SpriteRenderer>().sprite = null;
         soupGuy.transform.GetChild(2).GetComponent<SpriteRenderer>().sprite = null;
         soupGuy.transform.GetChild(3).GetComponent<SpriteRenderer>().sprite = null;
+        soupGuy.transform.GetChild(0).GetComponent<SpriteRenderer>().sprite = null;
     }
 
 
