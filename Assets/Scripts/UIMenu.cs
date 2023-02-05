@@ -104,18 +104,29 @@ public class UIMenu : MonoBehaviour
 
         try
         {
-            //set names
-            playerNames[0].text = gameinfo.mPlayer1.PlayerName;
-            playerNames[1].text = gameinfo.mPlayer2.PlayerName;
-            playerNames[2].text = gameinfo.mPlayer3.PlayerName;
-            playerNames[3].text = gameinfo.mPlayer4.PlayerName;
+            if (SceneManager.GetActiveScene() == SceneManager.GetSceneByName("Main Menu"))
+            {
+                //set names
+                playerNames[0].text = gameinfo.mPlayer1.PlayerName;
+                playerNames[1].text = gameinfo.mPlayer2.PlayerName;
+                playerNames[2].text = gameinfo.mPlayer3.PlayerName;
+                playerNames[3].text = gameinfo.mPlayer4.PlayerName;
 
-            //set avatars
-            playerAvatars[0].GetComponent<Image>().sprite = characterAvatars[gameinfo.mPlayer1.ChosenAnimal - 1];
-            playerAvatars[1].GetComponent<Image>().sprite = characterAvatars[gameinfo.mPlayer2.ChosenAnimal - 1];
-            playerAvatars[2].GetComponent<Image>().sprite = characterAvatars[gameinfo.mPlayer3.ChosenAnimal - 1];
-            playerAvatars[3].GetComponent<Image>().sprite = characterAvatars[gameinfo.mPlayer4.ChosenAnimal - 1];
-        
+                //set avatars
+                playerAvatars[0].GetComponent<Image>().sprite = characterAvatars[gameinfo.mPlayer1.ChosenAnimal - 1];
+                playerAvatars[1].GetComponent<Image>().sprite = characterAvatars[gameinfo.mPlayer2.ChosenAnimal - 1];
+                playerAvatars[2].GetComponent<Image>().sprite = characterAvatars[gameinfo.mPlayer3.ChosenAnimal - 1];
+                playerAvatars[3].GetComponent<Image>().sprite = characterAvatars[gameinfo.mPlayer4.ChosenAnimal - 1];
+            }
+        }
+
+        catch (Exception ex)
+        {
+            Debug.Log("Lazy way to check for 4 players: If this is during the main menu, or you didn't start the game from the main menu, it's fine.");
+            Debug.Log(ex);
+            return;
+        }
+
 
         //set inventories
         player1CarrotPotatoTurnip[1].text = "x " + gameinfo.mPlayer1.Vegetables.Count(v => v.x == 0);
@@ -140,15 +151,7 @@ public class UIMenu : MonoBehaviour
         playerScores[2].text = "Score: " + gameinfo.mPlayer3.playerScore;
         playerScores[3].text = "Score: " + gameinfo.mPlayer4.playerScore;
 
-        
-
-        }
-
-        catch (Exception ex)
-        {
-            Debug.Log("Lazy way to check for 4 players: If this is during the main menu, or you didn't start the game from the main menu, it's fine.");
-            return;
-        }
+       
 
         if(SceneManager.GetActiveScene() == SceneManager.GetSceneByName("FarmScene"))
         {
@@ -161,6 +164,6 @@ public class UIMenu : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        CallUpdateUI();
     }
 }
