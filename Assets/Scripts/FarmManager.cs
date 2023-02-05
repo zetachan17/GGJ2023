@@ -23,7 +23,7 @@ public class FarmManager : MonoBehaviour
     [SerializeField] GameObject mPlayer3GameObject;
     [SerializeField] GameObject mPlayer4GameObject;
 
-    Dictionary<Vector2Int, Vector2Int> mFarmContents;
+    public Dictionary<Vector2Int, Vector2Int> mFarmContents;
 
     [SerializeField] GameObject vegetablePrefab;
 
@@ -117,6 +117,7 @@ public class FarmManager : MonoBehaviour
                 int wRandomVegSize = Random.Range(1, 5);
                 wSeed.GetComponentInChildren<Vegetable>().setSize(wRandomVegSize);
                 mFarmContents.Add(wTempGridPosition, new Vector2Int(wRandomVegType, wRandomVegSize));
+                wSeed.name = "Veg_" + wTempGridPosition.x + "_" + wTempGridPosition.y;
                 wSeedsPlanted++;
             }
         }
@@ -160,6 +161,7 @@ public class FarmManager : MonoBehaviour
                 }
 
                 mFarmContents.Add(wTempGridPosition, new Vector2Int(wRandomVegType, 0));
+                wSeed.name = "Veg_" + wTempGridPosition.x + "_" + wTempGridPosition.y;
                 wSeedsPlanted++;
             }
             else 
@@ -191,6 +193,7 @@ public class FarmManager : MonoBehaviour
                     break;
             }
             wSeed.GetComponentInChildren<Vegetable>().setSize(wEntry.Value.y);
+            wSeed.name = "Veg_" + wEntry.Key.x + "_" + wEntry.Key.y;
         }
 
 

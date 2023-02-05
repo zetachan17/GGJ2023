@@ -99,6 +99,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   groundTilemap: {fileID: 0}
   collisionTilemap: {fileID: 0}
-  spawner: {fileID: 0}
-  testSpawnObj: {fileID: 0}
-  plantedSeedsPos: []
+  mPlayerPosition: {x: 0, y: 0}
+  mFarmManager: {fileID: 0}
+  mBlockedSpots: []
+  mStartPosition: {x: 0, y: 0}
