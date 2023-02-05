@@ -366,7 +366,7 @@ public class FarmManager : MonoBehaviour
         GameInfo.Instance.mPlayer2 = mPlayer2;
         GameInfo.Instance.mPlayer3 = mPlayer3;
         GameInfo.Instance.mPlayer4 = mPlayer4;
-        SceneManager.LoadScene("MarketScene");
+        SceneManager.LoadScene("Market");
     }
 
     public void GoHomeButtonPressed()

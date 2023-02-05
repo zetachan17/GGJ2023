@@ -46,6 +46,8 @@ public class PlayerControls: MonoBehaviour
     }
     public void startTurn(PlayerAttributes iPlayerAttributes, List<Vector2Int> iBlockedSpots)
     {
+        GoHomeButton = GameObject.Find("Go To Market Button");
+        GoHomeButton.SetActive(false);
         if (iPlayerAttributes.HasLeft) //TODO: add endturn logic
             mFarmManager.endPlayerTurn(mPlayerAttributes, mCurrentPosition); 
         this.mPlayerAttributes = iPlayerAttributes;
@@ -67,12 +69,16 @@ public class PlayerControls: MonoBehaviour
             mCurrentPosition = new Vector2Int((int)wTempVec.x, (int)wTempVec.y);
             //Debug.Log("player moved to" + mCurrentPosition + "!!");
 
-
+            if (mCurrentPosition == mStartPosition) GoHomeButton.SetActive(true);
+            else GoHomeButton.SetActive(false);
         }
     }   
 
 
-
+    public void forceEndTurn()
+    {
+        mCurrentAp = 0;
+    }
     private bool CanMove(Vector2 dir){
 
         Vector3Int gridPosition = groundTilemap.WorldToCell(transform.position + (Vector3)dir);
@@ -131,6 +137,7 @@ public class PlayerControls: MonoBehaviour
         mPlayerAttributes.HasLeft = true;
         mPlayerAttributes.playerLeaveOrder = mFarmManager.mHowManyPlayersHaveLeft;
         mFarmManager.mHowManyPlayersHaveLeft++;
+        mCurrentAp = 0;
     }
 
     private void Update()
