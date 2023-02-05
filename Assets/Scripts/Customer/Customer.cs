@@ -7,20 +7,7 @@ public class Customer : MonoBehaviour
 {
     // GameObject _gameObject
     private Power _power;
-    private enum Power
-    {
-        Fire,
-        Action,
-        Block,
-        Ice,
-        Cat,
-        Dog,
-        Hairball,
-        None
     
-    }
-    
-
     public void SetUpCustomers(int type)
     {
         switch (type)
@@ -97,4 +84,17 @@ public class Customer : MonoBehaviour
     // {
     //     print("this is highlighted");
     // }
+}
+
+public enum Power
+{
+    Fire,
+    Action,
+    Block,
+    Ice,
+    Cat,
+    Dog,
+    Hairball,
+    None
+    
 }
