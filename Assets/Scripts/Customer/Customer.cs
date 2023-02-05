@@ -46,7 +46,7 @@ public class Customer : MonoBehaviour
                 break;
             //standard3
             case "standard3":
-                var randomQuest3 = Random.Range(0, 11);
+                var randomQuest3 = Random.Range(0, 7);
                 switch (randomQuest3)
                 {
                     case 0:
@@ -83,7 +83,7 @@ public class Customer : MonoBehaviour
                 break;
             //standard4
             case "standard4":
-                var randomQuest4 = Random.Range(0, 11);
+                var randomQuest4 = Random.Range(0, 12);
                 switch (randomQuest4)
                 {
                     case 0:

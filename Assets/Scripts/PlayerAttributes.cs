@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerAttributes : MonoBehaviour
+public class PlayerAttributes
 {
     [SerializeField] private string playerName;
     [SerializeField] private int chosenAnimal;
@@ -103,7 +103,13 @@ public class PlayerAttributes : MonoBehaviour
         this.playerName = playerName;
         this.chosenAnimal = chosenAnimal;
     }
-    
+
+    public PlayerAttributes()
+    {
+        this.playerName = "PlaceHolder";
+        this.chosenAnimal = 0;
+    }
+
     // private void MoveToGrid(Vector2 TargetPosition)
     // {
     //     //move the player to the grid position
