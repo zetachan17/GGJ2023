@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -15,6 +16,7 @@ public class PlayerControls: MonoBehaviour
     [SerializeField] private List<Vector3Int> plantedSeedsPos;
 
     [SerializeField] private PlayerAttributes playerAttributes;
+    [SerializeField] private SwitchPlayer switchPlayer;
     
     private void Awake() {
         playerActions = new PlayerActions();
@@ -98,6 +100,29 @@ public class PlayerControls: MonoBehaviour
 
     private void Harvest()
     {
-        //spawner.plantedVegetables[i].GetComponentInChildren<Vegetable>().getType();
+        Vector3Int newgridPosition = groundTilemap.WorldToCell(transform.position);
+        if (spawner.plantedVegetableLocations.Contains(newgridPosition))
+        {
+            Vector3 newv3 = (Vector3)newgridPosition;
+                    
+            for(int i = 0; i < spawner.plantedVegetableLocations.Count; i++)
+            {
+                if(spawner.plantedVegetableLocations[i] == newv3)
+                {
+                    Debug.Log(spawner.plantedVegetables[i].GetComponentInChildren<Vegetable>().getType() + "is at"+ newgridPosition + "is harvested!!!!");
+                    Destroy(spawner.plantedVegetables[i]);
+                    spawner.plantedVegetableLocations.RemoveAt(i);
+                    spawner.plantedVegetables.RemoveAt(i);
+                }
+            }
+        }
+    }
+
+    private void Update()
+    {
+        if (Input.GetKeyDown("space"))
+        {
+            Harvest();
+        }
     }
 }
