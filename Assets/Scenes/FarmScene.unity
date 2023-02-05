@@ -197,6 +197,10 @@ PrefabInstance:
       propertyPath: collisionTilemap
       value: 
       objectReference: {fileID: 1573758974}
+    - target: {fileID: 7535436032156162801, guid: 874cc6a41fa26324f9b309af07115ad5, type: 3}
+      propertyPath: mStartPosition.y
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 7535436032156162802, guid: 874cc6a41fa26324f9b309af07115ad5, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -484,6 +488,10 @@ PrefabInstance:
       propertyPath: collisionTilemap
       value: 
       objectReference: {fileID: 1573758974}
+    - target: {fileID: 7535436032156162801, guid: 874cc6a41fa26324f9b309af07115ad5, type: 3}
+      propertyPath: mStartPosition.x
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 7535436032156162802, guid: 874cc6a41fa26324f9b309af07115ad5, type: 3}
       propertyPath: m_RootOrder
       value: 7
@@ -656,6 +664,14 @@ PrefabInstance:
       propertyPath: collisionTilemap
       value: 
       objectReference: {fileID: 1573758974}
+    - target: {fileID: 7535436032156162801, guid: 874cc6a41fa26324f9b309af07115ad5, type: 3}
+      propertyPath: mStartPosition.x
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 7535436032156162801, guid: 874cc6a41fa26324f9b309af07115ad5, type: 3}
+      propertyPath: mStartPosition.y
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 7535436032156162802, guid: 874cc6a41fa26324f9b309af07115ad5, type: 3}
       propertyPath: m_RootOrder
       value: 6

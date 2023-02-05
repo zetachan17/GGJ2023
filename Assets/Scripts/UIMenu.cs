@@ -64,6 +64,11 @@ public class UIMenu : MonoBehaviour
         FindObjectOfType<FarmManager>().getActivePlayer().forceEndTurn();
     }
 
+    public void SendActivePlayerToMarket()
+    {
+        FindObjectOfType<FarmManager>().getActivePlayer().sendHome();
+    }
+
 
     public void NextTurn()
     {

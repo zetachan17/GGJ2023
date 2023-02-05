@@ -13,7 +13,6 @@ public class PlayerControls: MonoBehaviour
     [SerializeField] public Vector2Int mPlayerPosition;
     [SerializeField] public FarmManager mFarmManager;
 
-    [SerializeField] public GameObject GoHomeButton;
 
     //[SerializeField] private List<Vector3Int> plantedSeedsPos;
     public List<Vector2Int> mBlockedSpots;
@@ -46,8 +45,7 @@ public class PlayerControls: MonoBehaviour
     }
     public void startTurn(PlayerAttributes iPlayerAttributes, List<Vector2Int> iBlockedSpots)
     {
-        GoHomeButton = GameObject.Find("Go To Market Button");
-        GoHomeButton.SetActive(false);
+
         if (iPlayerAttributes.HasLeft) //TODO: add endturn logic
             mFarmManager.endPlayerTurn(mPlayerAttributes, mCurrentPosition); 
         this.mPlayerAttributes = iPlayerAttributes;
@@ -69,8 +67,8 @@ public class PlayerControls: MonoBehaviour
             mCurrentPosition = new Vector2Int((int)wTempVec.x, (int)wTempVec.y);
             //Debug.Log("player moved to" + mCurrentPosition + "!!");
 
-            if (mCurrentPosition == mStartPosition) GoHomeButton.SetActive(true);
-            else GoHomeButton.SetActive(false);
+            if (mCurrentPosition == mStartPosition) mFarmManager.setHomeButtonActive(true);
+            else mFarmManager.setHomeButtonActive(false);
         }
     }   
 

@@ -34,7 +34,9 @@ public class FarmManager : MonoBehaviour
 
 
     Dictionary<int, Vector2Int> mPlayerLocations = new Dictionary<int, Vector2Int>();
-    
+
+
+    GameObject GoHomeButton;
 
     public int mHowManyPlayersHaveLeft = 0;
 
@@ -47,6 +49,7 @@ public class FarmManager : MonoBehaviour
 
     void Start()
     {
+        GoHomeButton = GameObject.Find("Go To Market Button");
         mPlayerLocations.Add(1, new Vector2Int(0, 8));
         mPlayerLocations.Add(2, new Vector2Int(8, 8));
         mPlayerLocations.Add(3, new Vector2Int(8, 0));
@@ -125,16 +128,36 @@ public class FarmManager : MonoBehaviour
         switch (mActivePlayer)
         {
             case 1:
+                if (mTurn == 5 && !iPlayerAttributes.HasLeft)
+                {
+                    iPlayerAttributes.playerLeaveOrder = mHowManyPlayersHaveLeft;
+                    mHowManyPlayersHaveLeft++;
+                }
                 mPlayer1 = iPlayerAttributes;
                 break;
             case 2:
                 mPlayer2 = iPlayerAttributes;
+                if (mTurn == 5 && !iPlayerAttributes.HasLeft)
+                {
+                    iPlayerAttributes.playerLeaveOrder = mHowManyPlayersHaveLeft;
+                    mHowManyPlayersHaveLeft++;
+                }
                 break;
             case 3:
                 mPlayer3 = iPlayerAttributes;
+                if (mTurn == 5 && !iPlayerAttributes.HasLeft)
+                {
+                    iPlayerAttributes.playerLeaveOrder = mHowManyPlayersHaveLeft;
+                    mHowManyPlayersHaveLeft++;
+                }
                 break;
             case 4:
                 mPlayer4 = iPlayerAttributes;
+                if (mTurn == 5 && !iPlayerAttributes.HasLeft)
+                {
+                    iPlayerAttributes.playerLeaveOrder = mHowManyPlayersHaveLeft;
+                    mHowManyPlayersHaveLeft++;
+                }
                 break;
         }
         mActivePlayer++;
@@ -361,7 +384,9 @@ public class FarmManager : MonoBehaviour
     void doneFarmPhase()
     {
         seedField();
+        growField();
         GameInfo.Instance.mFarmContents = mFarmContents;
+        
         GameInfo.Instance.mPlayer1 = mPlayer1;
         GameInfo.Instance.mPlayer2 = mPlayer2;
         GameInfo.Instance.mPlayer3 = mPlayer3;
@@ -373,6 +398,10 @@ public class FarmManager : MonoBehaviour
     {
         getActivePlayer().sendHome();
 
+    }
+    public void setHomeButtonActive(bool active)
+    {
+        GoHomeButton.SetActive(active);
     }
 
 }
