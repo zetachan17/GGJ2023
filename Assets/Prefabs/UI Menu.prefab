@@ -1523,7 +1523,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 800, y: 325}
+  m_AnchoredPosition: {x: 800, y: -325}
   m_SizeDelta: {x: 300, y: 375}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &3837788055206370630
@@ -1970,7 +1970,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 800, y: -325}
+  m_AnchoredPosition: {x: -800, y: -325}
   m_SizeDelta: {x: 300, y: 375}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &3837788055315168166
@@ -3190,16 +3190,33 @@ MonoBehaviour:
   - {fileID: 3837788056461596633}
   - {fileID: 3837788056656587008}
   - {fileID: 3837788054951923739}
-  player1CarrotPotatoTurnip: []
-  player2CarrotPotatoTurnip: []
-  player3CarrotPotatoTurnip: []
-  playerScores: []
+  player1CarrotPotatoTurnip:
+  - {fileID: 3837788055116486134}
+  - {fileID: 3837788056370898209}
+  - {fileID: 3837788055413253609}
+  player2CarrotPotatoTurnip:
+  - {fileID: 3837788056573389050}
+  - {fileID: 3837788056063633152}
+  - {fileID: 3837788054968112720}
+  player3CarrotPotatoTurnip:
+  - {fileID: 3837788054998120798}
+  - {fileID: 3837788055704222744}
+  - {fileID: 3837788055339588184}
+  player4CarrotPotatoTurnip:
+  - {fileID: 3837788055321507788}
+  - {fileID: 3837788055267457404}
+  - {fileID: 3837788055797232475}
+  playerScores:
+  - {fileID: 3837788055623378620}
+  - {fileID: 3837788056756750982}
+  - {fileID: 3837788056079184655}
+  - {fileID: 3837788055811012578}
   infoMessagePopup: {fileID: 0}
   closePopupButton: {fileID: 0}
   quitButton: {fileID: 0}
   turnIndicator: {fileID: 4998352146659437893}
   turnText: {fileID: 5647808758645832111}
-  playerInfo: {fileID: 11400000, guid: 8c1a6e78c32ff4f42adde9fc77fe8ba8, type: 2}
+  gameinfo: {fileID: 0}
   characterAvatars:
   - {fileID: 21300000, guid: f37470ff9a786b44580f07d5d98ec0bd, type: 3}
   - {fileID: 21300000, guid: 0fba25845c1780f49aa945daada31359, type: 3}
@@ -5698,7 +5715,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -800, y: -325}
+  m_AnchoredPosition: {x: 800, y: 325}
   m_SizeDelta: {x: 300, y: 375}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &3837788056405642442

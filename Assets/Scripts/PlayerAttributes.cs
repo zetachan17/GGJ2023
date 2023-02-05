@@ -33,7 +33,16 @@ public class PlayerAttributes
     public int playerScore;
     
     // Start is called before the first frame update
+    void Start()
+    {
+        currentAP = maxAP; 
+    }
 
+    // Update is called once per frame
+    void Update()
+    {
+    
+    }
 
     //getters and setters
     public List<Vegetable> Vegetables
