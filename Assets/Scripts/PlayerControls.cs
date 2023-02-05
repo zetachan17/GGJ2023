@@ -93,8 +93,30 @@ public class PlayerControls: MonoBehaviour
             if (mCurrentAp >= wTempVegInfo.y)
             {
                 mPlayerAttributes.AddVegetable(wTempVegInfo);
+                Debug.Log("Vegetable Added");
+                foreach (Vector2Int veg in mPlayerAttributes.Vegetables)
+                {
+                    Debug.Log("Player now has " + veg);
+                }
                 mCurrentAp -= wTempVegInfo.y;
                 mFarmManager.harvestVegetable(mCurrentPosition);
+                switch (mFarmManager.mActivePlayer)
+                {
+                    case 1:
+                        GameInfo.Instance.mPlayer1 = mPlayerAttributes;
+                        break;
+                    case 2:
+                        GameInfo.Instance.mPlayer2 = mPlayerAttributes;
+                        break;
+                    case 3:
+                        GameInfo.Instance.mPlayer3 = mPlayerAttributes;
+                        break;
+                    case 4:
+                        GameInfo.Instance.mPlayer4 = mPlayerAttributes;
+                        break;
+                }
+                FindObjectOfType<UIMenu>().CallUpdateUI();
+
                 GameObject wTempGameObject = GameObject.Find("Veg_" + mCurrentPosition.x + "_" + mCurrentPosition.y);
                 if (wTempGameObject)
                 {

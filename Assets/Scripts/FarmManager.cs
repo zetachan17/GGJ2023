@@ -8,7 +8,7 @@ public class FarmManager : MonoBehaviour
     // Start is called before the first frame update
 
     [SerializeField] int mStartPlayer;
-    [SerializeField] int mActivePlayer;
+    [SerializeField] public int mActivePlayer;
     [SerializeField] int mRound = 1;
     [SerializeField] int mTurn = 1;
     [SerializeField] GameObject mGrid;

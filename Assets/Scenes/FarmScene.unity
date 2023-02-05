@@ -485,10 +485,10 @@ MonoBehaviour:
   mPlayer3GameObject: {fileID: 1197909977}
   mPlayer4GameObject: {fileID: 587676014}
   vegetablePrefab: {fileID: 5532535277959985215, guid: 79b54661851ea9643b0e5b5370237aa9, type: 3}
-  mCatSprite: {fileID: 0}
-  mDogSprite: {fileID: 0}
-  mCapybaraSprite: {fileID: 0}
-  mDonkeySprite: {fileID: 0}
+  mCatSprite: {fileID: 21300000, guid: 35b6a4d33c4593642871bd6470416fe4, type: 3}
+  mDogSprite: {fileID: 21300000, guid: 2269229c577c32d479a6422b3ffd6516, type: 3}
+  mCapybaraSprite: {fileID: 21300000, guid: 7674790a21d64bb409861c0b3c90640c, type: 3}
+  mDonkeySprite: {fileID: 21300000, guid: 6be0e31ca454e5942a60b855a4a12c9d, type: 3}
   mHowManyPlayersHaveLeft: 0
 --- !u!4 &702388904
 Transform:
