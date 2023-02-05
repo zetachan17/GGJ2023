@@ -3070,6 +3070,7 @@ GameObject:
   - component: {fileID: 3837788055455668672}
   - component: {fileID: 3837788055455668675}
   - component: {fileID: 3837788055455668674}
+  - component: {fileID: 1671170259682795359}
   m_Layer: 5
   m_Name: UI Menu
   m_TagString: Untagged
@@ -3163,6 +3164,32 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
+--- !u!114 &1671170259682795359
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3837788055455668676}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4a5dcc5715c6202489f1ff1d2b4c4a5a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerNames:
+  - {fileID: 3837788055054044196}
+  - {fileID: 3837788056116808395}
+  - {fileID: 3837788055129573042}
+  - {fileID: 3837788056544703199}
+  playerAvatars: {fileID: 0}
+  player1CarrotPotatoTurnip: []
+  player2CarrotPotatoTurnip: []
+  player3CarrotPotatoTurnip: []
+  playerScores: []
+  infoMessagePopup: {fileID: 0}
+  closePopupButton: {fileID: 0}
+  quitButton: {fileID: 0}
+  playerInfo: {fileID: 11400000, guid: 8c1a6e78c32ff4f42adde9fc77fe8ba8, type: 2}
 --- !u!1 &3837788055476073677
 GameObject:
   m_ObjectHideFlags: 0

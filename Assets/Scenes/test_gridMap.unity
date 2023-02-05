@@ -700,6 +700,10 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3837788055054044196, guid: a152e6c0e7c0d3b4aa6c11fef1153114, type: 3}
+      propertyPath: m_text
+      value: Whiskers
+      objectReference: {fileID: 0}
     - target: {fileID: 3837788055054044199, guid: a152e6c0e7c0d3b4aa6c11fef1153114, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
