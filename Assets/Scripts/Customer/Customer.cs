@@ -240,6 +240,69 @@ public class Customer : MonoBehaviour
         print("this is leaving forever");
     }
 
+    public void completeQuest(List<Vector2Int> playerInventory)
+    {
+        if (checkIfEligible(playerInventory))
+        {
+            quest.Clear();
+        }
+    }
+
+    public bool checkIfEligible(List<Vector2Int> playerInventory)
+    {
+        int carrotCount = 0;
+        int potatoCount = 0;
+        int turnipCount = 0;
+
+        foreach (var vege in playerInventory)
+        {
+            switch (vege.x)
+            {
+                case 0:
+                    carrotCount++;
+                    break;
+                case 1:
+                    potatoCount++;
+                    break;
+                case 2:
+                    turnipCount++;
+                    break;
+            }
+        }
+
+        foreach (var questVege in quest)
+        {
+            switch (questVege.Key)
+            {
+                case Vegetable.VegetableType.carrot:
+                    if (questVege.Value > carrotCount)
+                    {
+                        return false;
+                    }
+
+                    break;
+                case Vegetable.VegetableType.potato:
+                    if (questVege.Value > potatoCount)
+                    {
+                        return false;
+                    }
+
+                    break;
+                case Vegetable.VegetableType.turnip:
+                    if (questVege.Value > potatoCount)
+                    {
+                        return false;
+                    }
+
+                    break;
+                default:
+                    return false;
+            }
+        }
+
+        return true;
+    }
+
     public string getPower()
     {
         return _power.ToString();
