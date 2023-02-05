@@ -5,10 +5,12 @@ using UnityEngine;
 using System;
 using UnityEngine.UI;
 using System.Linq;
+using UnityEngine.SceneManagement;
 
 public class UIMenu : MonoBehaviour
 {
     public static UIMenu Instance;
+    
 
     [Header("Player Profile")]
     public TMP_Text[] playerNames;
@@ -32,6 +34,10 @@ public class UIMenu : MonoBehaviour
     [Header("Indicators")]
     public Image turnIndicator;
     public TMP_Text turnText;
+    public TMP_Text apTextForActionyTimes;
+
+    [Header("Market Pulldown")]
+    public TMP_Text roundTurnIndicator;
 
     [SerializeField]
     //deprecated player scriptable object
@@ -127,6 +133,8 @@ public class UIMenu : MonoBehaviour
         playerScores[2].text = "Score: " + gameinfo.mPlayer3.playerScore;
         playerScores[3].text = "Score: " + gameinfo.mPlayer4.playerScore;
 
+        
+
         }
 
         catch (Exception ex)
@@ -135,6 +143,11 @@ public class UIMenu : MonoBehaviour
             return;
         }
 
+        if(SceneManager.GetActiveScene() == SceneManager.GetSceneByName("FarmScene"))
+        {
+            GameObject fm = GameObject.Find("FarmManager");
+            apTextForActionyTimes.text = fm.GetComponent<FarmManager>().getActivePlayer().CurrentAP + " Action Points Remaining!";
+        }
 
     }
 

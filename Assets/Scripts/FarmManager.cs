@@ -72,6 +72,23 @@ public class FarmManager : MonoBehaviour
 
     }
 
+    public PlayerAttributes getActivePlayer()
+    {
+        switch (mActivePlayer)
+        {
+            case 1:
+                return mPlayer1;
+            case 2:
+                return mPlayer2;
+            case 3:
+                return mPlayer3;
+            case 4:
+                return mPlayer4;
+            default:
+                return mPlayer1;
+        }
+    }
+
     public void endPlayerTurn(PlayerAttributes iPlayerAttributes, Vector2Int iPlayerPosition)
     {
         mActivePlayer++;
