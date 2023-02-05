@@ -25,6 +25,10 @@ public class UIMenu : MonoBehaviour
     public GameObject closePopupButton;
     public GameObject quitButton;
 
+    [Header("Indicators")]
+    public Image turnIndicator;
+    public TMP_Text turnText;
+
     [SerializeField]
     private PlayerInfoScriptableObject playerInfo;
     public Sprite[] characterAvatars;
@@ -41,8 +45,37 @@ public class UIMenu : MonoBehaviour
             }
             catch(Exception ex)
             {
-                Debug.Log("Player Scriptable Object Not Set Up!!");
+                Debug.Log("Player Scriptable Object Not Set Up! If you started the game from somewhere other than the main menu this is fine. Otherwise, oh fuck!");
             } 
+        }
+    }
+
+    public void NextTurn()
+    {
+        Vector2 pos = turnIndicator.GetComponent<RectTransform>().localPosition;
+        if(pos.x < 0 && pos.y > 0)
+        {
+            turnIndicator.GetComponent<RectTransform>().localPosition = new Vector2(-800, -80);
+            turnIndicator.GetComponent<RectTransform>().rotation = Quaternion.Euler(new Vector3(0, 0, 180));
+            turnText.text = playerNames[1].text + "'s Turn!";
+        }
+        if (pos.x < 0 && pos.y < 0)
+        {
+            turnIndicator.GetComponent<RectTransform>().localPosition = new Vector2(800, 80);
+            turnIndicator.GetComponent<RectTransform>().rotation = Quaternion.Euler(new Vector3(0, 0, 0));
+            turnText.text = playerNames[2].text + "'s Turn!";
+        }
+        if (pos.x > 0 && pos.y > 0)
+        {
+            turnIndicator.GetComponent<RectTransform>().localPosition = new Vector2(800, -80);
+            turnIndicator.GetComponent<RectTransform>().rotation = Quaternion.Euler(new Vector3(0, 0, 180));
+            turnText.text = playerNames[3].text + "'s Turn!";
+        }
+        if (pos.x > 0 && pos.y < 0)
+        {
+            turnIndicator.GetComponent<RectTransform>().localPosition = new Vector2(-800, 80);
+            turnIndicator.GetComponent<RectTransform>().rotation = Quaternion.Euler(new Vector3(0, 0, 0));
+            turnText.text = playerNames[0].text + "'s Turn!";
         }
     }
 
