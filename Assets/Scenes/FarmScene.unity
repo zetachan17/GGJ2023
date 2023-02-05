@@ -176,6 +176,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 7535436032156162801, guid: 874cc6a41fa26324f9b309af07115ad5, type: 3}
+      propertyPath: mFarmManager
+      value: 
+      objectReference: {fileID: 702388903}
+    - target: {fileID: 7535436032156162801, guid: 874cc6a41fa26324f9b309af07115ad5, type: 3}
+      propertyPath: groundTilemap
+      value: 
+      objectReference: {fileID: 2023831118}
+    - target: {fileID: 7535436032156162801, guid: 874cc6a41fa26324f9b309af07115ad5, type: 3}
+      propertyPath: collisionTilemap
+      value: 
+      objectReference: {fileID: 1573758974}
     - target: {fileID: 7535436032156162802, guid: 874cc6a41fa26324f9b309af07115ad5, type: 3}
       propertyPath: m_RootOrder
       value: 1

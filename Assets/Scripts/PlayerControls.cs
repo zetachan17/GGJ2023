@@ -15,9 +15,9 @@ public class PlayerControls: MonoBehaviour
 
     //[SerializeField] private List<Vector3Int> plantedSeedsPos;
     public List<Vector2Int> mBlockedSpots;
-    private PlayerAttributes mPlayerAttributes;
-    private int mMaxAp;
-    private int mCurrentAp;
+    private PlayerAttributes mPlayerAttributes = new PlayerAttributes();
+    private int mMaxAp = 6;
+    private int mCurrentAp = 6;
     private Vector2Int mCurrentPosition;
 
     [SerializeField] Vector2Int mStartPosition;

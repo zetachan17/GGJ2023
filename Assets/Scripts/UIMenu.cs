@@ -111,23 +111,23 @@ public class UIMenu : MonoBehaviour
         
 
         //set inventories
-        player1CarrotPotatoTurnip[1].text = "x " + gameinfo.mPlayer1.Vegetables.Count(v => v.getType() == "potato");
-        player1CarrotPotatoTurnip[0].text = "x " + gameinfo.mPlayer1.Vegetables.Count(v => v.getType() == "carrot");
-        player1CarrotPotatoTurnip[2].text = "x " + gameinfo.mPlayer1.Vegetables.Count(v => v.getType() == "turnip");
+        player1CarrotPotatoTurnip[1].text = "x " + gameinfo.mPlayer1.Vegetables.Count(v => v.x == 0);
+        player1CarrotPotatoTurnip[0].text = "x " + gameinfo.mPlayer1.Vegetables.Count(v => v.x == 1);
+        player1CarrotPotatoTurnip[2].text = "x " + gameinfo.mPlayer1.Vegetables.Count(v => v.x == 2);
 
-        player2CarrotPotatoTurnip[1].text = "x " + gameinfo.mPlayer2.Vegetables.Count(v => v.getType() == "potato");
-        player2CarrotPotatoTurnip[0].text = "x " + gameinfo.mPlayer2.Vegetables.Count(v => v.getType() == "carrot");
-        player2CarrotPotatoTurnip[2].text = "x " + gameinfo.mPlayer2.Vegetables.Count(v => v.getType() == "turnip");
+        player2CarrotPotatoTurnip[1].text = "x " + gameinfo.mPlayer1.Vegetables.Count(v => v.x == 0);
+        player2CarrotPotatoTurnip[0].text = "x " + gameinfo.mPlayer1.Vegetables.Count(v => v.x == 1);
+        player2CarrotPotatoTurnip[2].text = "x " + gameinfo.mPlayer1.Vegetables.Count(v => v.x == 2);
 
-        player3CarrotPotatoTurnip[1].text = "x " + gameinfo.mPlayer3.Vegetables.Count(v => v.getType() == "potato");
-        player3CarrotPotatoTurnip[0].text = "x " + gameinfo.mPlayer3.Vegetables.Count(v => v.getType() == "carrot");
-        player3CarrotPotatoTurnip[2].text = "x " + gameinfo.mPlayer3.Vegetables.Count(v => v.getType() == "turnip");
+        player3CarrotPotatoTurnip[1].text = "x " + gameinfo.mPlayer1.Vegetables.Count(v => v.x == 0);
+        player3CarrotPotatoTurnip[0].text = "x " + gameinfo.mPlayer1.Vegetables.Count(v => v.x == 1);
+        player3CarrotPotatoTurnip[2].text = "x " + gameinfo.mPlayer1.Vegetables.Count(v => v.x == 2);
 
-        player4CarrotPotatoTurnip[1].text = "x " + gameinfo.mPlayer4.Vegetables.Count(v => v.getType() == "potato");
-        player4CarrotPotatoTurnip[0].text = "x " + gameinfo.mPlayer4.Vegetables.Count(v => v.getType() == "carrot");
-        player4CarrotPotatoTurnip[2].text = "x " + gameinfo.mPlayer4.Vegetables.Count(v => v.getType() == "turnip");
+        player4CarrotPotatoTurnip[1].text = "x " + gameinfo.mPlayer1.Vegetables.Count(v => v.x == 0);
+        player4CarrotPotatoTurnip[0].text = "x " + gameinfo.mPlayer1.Vegetables.Count(v => v.x == 1);
+        player4CarrotPotatoTurnip[2].text = "x " + gameinfo.mPlayer1.Vegetables.Count(v => v.x == 2);
 
-        //set scores
+            //set scores
         playerScores[0].text = "Score: " + gameinfo.mPlayer1.playerScore;
         playerScores[1].text = "Score: " + gameinfo.mPlayer2.playerScore;
         playerScores[2].text = "Score: " + gameinfo.mPlayer3.playerScore;
