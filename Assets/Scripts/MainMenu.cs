@@ -1,6 +1,7 @@
 ﻿using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 using Random = UnityEngine.Random;
 
 namespace UI.Menus
@@ -56,6 +57,18 @@ namespace UI.Menus
             audios = audioManager.GetComponents<AudioSource>();
         }
 
+        public void Update()
+        {
+            //press enter on name select
+            if (Input.GetKeyDown(KeyCode.Return))
+            {
+                if (nameEditorPopup.activeInHierarchy)
+                {
+                    OnConfirmEditNameClicked();
+                }
+            }
+        }
+
         #region UI Callbacks
 
         //when player selects a character. int 1,2,3,4 for the 4 animal choices
@@ -104,6 +117,7 @@ namespace UI.Menus
             else
             {
                 characterSelectTooltip.text = "Let's go!";
+                SceneManager.LoadScene("UI Temp Scene");
             }
             
 

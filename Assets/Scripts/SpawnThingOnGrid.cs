@@ -33,27 +33,38 @@ public class SpawnThingOnGrid : MonoBehaviour
     {
         int gridX = 1;
 
-        for (int i = gridX; i < 9; i++)//loop the rows
+        for (int i = gridX; i <= 9; i++)//loop the rows
         {
             int gridY = -7;
-            for (int j = gridY; j < 1; j++)
+            for (int j = gridY; j <= 1; j++)
             {
                 Vector3 v3offset = go.transform.GetChild(0).GetComponent<SpriteRenderer>().size / 2;
                 Vector3 v3 = new Vector3(i, j, 0) + v3offset;
-                if (!plantedVegetableLocations.Contains(new Vector3(i,j,0)))
+                if (!plantedVegetableLocations.Contains(new Vector3(i, j, 0)))
                 {
-                    float randomF = Random.Range(0f, 1f);
-                    if (randomF < chanceToSpawn)
+                    if((!(i == gridX && j == gridY) &&
+                    !(i == gridX && j == 1) &&
+                    !(i == 9 && j == gridY) &&
+                    !(i == 9 && j == 1)))
                     {
-                        //SpawnThingAt(vegPrefab[0], v3);
-                        GameObject newVeg = Instantiate(go, v3, Quaternion.identity); //Plant Seed!!
-                        plantedVegetables.Add(newVeg);
-                        plantedVegetableLocations.Add(new Vector3(i, j, 0));
+                        float randomF = Random.Range(0f, 1f);
+                        if (randomF < chanceToSpawn)
+                        {
+                            //SpawnThingAt(vegPrefab[0], v3);
+                            GameObject newVeg = Instantiate(go, v3, Quaternion.identity); //Plant Seed!!
+                            plantedVegetables.Add(newVeg);
+                            plantedVegetableLocations.Add(new Vector3(i, j, 0));
 
-                        Debug.Log("Spawned " + go.transform.GetComponentInChildren<Vegetable>().getType() + " Seed at" + new Vector3(i, j, 0));
-                        //keep track of what got planted
+                            Debug.Log("Spawned " + go.transform.GetComponentInChildren<Vegetable>().getType() + " Seed at" + new Vector3(i, j, 0));
+                            //keep track of what got planted
 
+                        }
                     }
+                    else
+                    {
+                        Debug.Log("Corener");
+                    }
+                    
                 }
                 else
                 {

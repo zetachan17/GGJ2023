@@ -266,7 +266,7 @@ SpriteRenderer:
   m_Size: {x: 1, y: 1}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!4 &84680594
@@ -350,7 +350,7 @@ SpriteRenderer:
   m_Size: {x: 1, y: 1}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!4 &206432541
@@ -515,7 +515,7 @@ SpriteRenderer:
   m_Size: {x: 1, y: 1}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!4 &468229740
@@ -699,6 +699,10 @@ PrefabInstance:
     - target: {fileID: 3837788055030648391, guid: a152e6c0e7c0d3b4aa6c11fef1153114, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3837788055054044196, guid: a152e6c0e7c0d3b4aa6c11fef1153114, type: 3}
+      propertyPath: m_text
+      value: Whiskers
       objectReference: {fileID: 0}
     - target: {fileID: 3837788055054044199, guid: a152e6c0e7c0d3b4aa6c11fef1153114, type: 3}
       propertyPath: m_AnchorMax.y
