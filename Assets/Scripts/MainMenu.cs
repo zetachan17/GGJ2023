@@ -56,6 +56,18 @@ namespace UI.Menus
             audios = audioManager.GetComponents<AudioSource>();
         }
 
+        public void Update()
+        {
+            //press enter on name select
+            if (Input.GetKeyDown(KeyCode.Return))
+            {
+                if (nameEditorPopup.activeInHierarchy)
+                {
+                    OnConfirmEditNameClicked();
+                }
+            }
+        }
+
         #region UI Callbacks
 
         //when player selects a character. int 1,2,3,4 for the 4 animal choices

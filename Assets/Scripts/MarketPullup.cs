@@ -24,7 +24,7 @@ public class MarketPullup : MonoBehaviour, IPointerEnterHandler, IPointerExitHan
     {
         RectTransform sayDialog = GetComponent<RectTransform>();
         var pos = sayDialog.localPosition;
-        sayDialog.localPosition = new Vector3(pos.x, pos.y + 130);
+        sayDialog.localPosition = new Vector3(pos.x, pos.y + 125);
         mouse_over = true;
        // Debug.Log("Mouse enter");
     }
@@ -33,7 +33,7 @@ public class MarketPullup : MonoBehaviour, IPointerEnterHandler, IPointerExitHan
     {
         RectTransform sayDialog = GetComponent<RectTransform>();
         var pos = sayDialog.localPosition;
-        sayDialog.localPosition = new Vector3(pos.x, pos.y - 130);
+        sayDialog.localPosition = new Vector3(pos.x, pos.y - 125);
         mouse_over = false;
         //Debug.Log("Mouse exit");
     }
