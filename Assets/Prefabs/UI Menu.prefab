@@ -7961,7 +7961,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1671170259682795359}
         m_TargetAssemblyTypeName: UIMenu, Assembly-CSharp
-        m_MethodName: NextTurn
+        m_MethodName: EndCurrentTurn
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

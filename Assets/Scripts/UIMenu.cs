@@ -59,8 +59,15 @@ public class UIMenu : MonoBehaviour
 
     }
 
+    public void EndCurrentTurn()
+    {
+        FindObjectOfType<FarmManager>().getActivePlayer().forceEndTurn();
+    }
+
+
     public void NextTurn()
     {
+
         Vector2 pos = turnIndicator.GetComponent<RectTransform>().localPosition;
         if(pos.x < 0 && pos.y > 0)
         {
