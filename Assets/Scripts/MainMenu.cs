@@ -47,7 +47,9 @@ namespace UI.Menus
         private int currentPlayer = 1;
         private AudioSource[] audios;
 
-        
+        [Header("Player Manager")]
+        [SerializeField]
+        private PlayerInfoScriptableObject playerManager;
         public void Awake()
         {
             SetActivePanel(startPanel);
@@ -106,7 +108,7 @@ namespace UI.Menus
             
 
             //TO-DO: SET UP A PLAYER
-
+            playerManager.AddPlayer(newName, chosenAnimal);
             
             nameEditorPopup.SetActive(false);
         }

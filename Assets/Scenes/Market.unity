@@ -391,6 +391,14 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 1fd841a03472144e4b0df43a2bd17e87, type: 3}
   - {fileID: 21300000, guid: be8511ca8243041e8a7ad0a1709420a4, type: 3}
   - {fileID: 21300000, guid: 9699b035eba2749c09268a01ba68b589, type: 3}
+  powerSprites:
+  - {fileID: 21300000, guid: 1629ab7f54d1941b990e4a02d6a3d64f, type: 3}
+  - {fileID: 21300000, guid: f2aee022ec65d4734bb60e534cb7f46f, type: 3}
+  - {fileID: 21300000, guid: 68560f364d3fe40d5a5b06f4ec3186eb, type: 3}
+  - {fileID: 21300000, guid: ba5acac14d61143edb5afcc5d6a5fcb3, type: 3}
+  - {fileID: 21300000, guid: 0a5f6a52ece5c413ab9a9223da407a20, type: 3}
+  - {fileID: 21300000, guid: 1fd841a03472144e4b0df43a2bd17e87, type: 3}
+  - {fileID: 21300000, guid: 81bb9acfc2c784270ac26a309a18c6ea, type: 3}
 --- !u!212 &1256389455
 SpriteRenderer:
   m_ObjectHideFlags: 0

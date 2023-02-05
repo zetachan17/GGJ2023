@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class PlayerAttributes : MonoBehaviour
 {
+    [SerializeField] private string playerName;
+    [SerializeField] private int chosenAnimal;
+    
     //player position
     [SerializeField] private Vector2 playerPosition;
 
@@ -56,7 +59,21 @@ public class PlayerAttributes : MonoBehaviour
     {
         vegetables.Remove(vegetable);
     }
-
+    
+    //getter and setter for the player name
+    public string PlayerName
+    {
+        get => playerName;
+        set => playerName = value;
+    }
+    
+    //getter and setter for the chosen animal
+    public int ChosenAnimal
+    {
+        get => chosenAnimal;
+        set => chosenAnimal = value;
+    }
+    
     //getter and setter for the player position
     public Vector2 PlayerPosition
     {
@@ -76,6 +93,13 @@ public class PlayerAttributes : MonoBehaviour
     {
         get => currentAP;
         set => currentAP = value;
+    }
+    
+    //constructor with player name and chosen animal
+    public PlayerAttributes(string playerName, int chosenAnimal)
+    {
+        this.playerName = playerName;
+        this.chosenAnimal = chosenAnimal;
     }
     
     // private void MoveToGrid(Vector2 TargetPosition)
