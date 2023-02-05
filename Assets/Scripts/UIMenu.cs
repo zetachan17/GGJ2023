@@ -30,24 +30,22 @@ public class UIMenu : MonoBehaviour
     public TMP_Text turnText;
 
     [SerializeField]
-    private PlayerInfoScriptableObject playerInfo;
+    //deprecated player scriptable object
+    //private PlayerInfoScriptableObject playerInfo;
+
+    GameInfo gameinfo;
     public Sprite[] characterAvatars;
+
+    private void Awake()
+    {
+        gameinfo = GameInfo.Instance;
+        DontDestroyOnLoad(this.gameObject);
+    }
 
     // Start is called before the first frame update
     void Start()
     {
-        for (int i = 0; i < 4; i++)
-        {
-            try
-            {
-                playerNames[i].text = playerInfo.getStringFromIndex(i * 2);
-                playerAvatars[i].GetComponent<Image>().sprite = characterAvatars[Convert.ToInt32(playerInfo.getStringFromIndex(i * 2+1))-1];
-            }
-            catch(Exception ex)
-            {
-                Debug.Log("Player Scriptable Object Not Set Up! If you started the game from somewhere other than the main menu this is fine. Otherwise, oh fuck!");
-            } 
-        }
+
     }
 
     public void NextTurn()
@@ -79,9 +77,35 @@ public class UIMenu : MonoBehaviour
         }
     }
 
+    public void CallUpdateUI()
+    {
+        //this could be a loop or something less ugly but it's a game jam so whatever
+
+        //set names
+        playerNames[0].text = gameinfo.mPlayer1.PlayerName;
+        playerNames[1].text = gameinfo.mPlayer2.PlayerName;
+        playerNames[2].text = gameinfo.mPlayer3.PlayerName;
+        playerNames[3].text = gameinfo.mPlayer4.PlayerName;
+
+        //set avatars
+        try
+        {
+            playerAvatars[0].GetComponent<Image>().sprite = characterAvatars[gameinfo.mPlayer1.ChosenAnimal - 1];
+            playerAvatars[1].GetComponent<Image>().sprite = characterAvatars[gameinfo.mPlayer2.ChosenAnimal - 1];
+            playerAvatars[2].GetComponent<Image>().sprite = characterAvatars[gameinfo.mPlayer3.ChosenAnimal - 1];
+            playerAvatars[3].GetComponent<Image>().sprite = characterAvatars[gameinfo.mPlayer4.ChosenAnimal - 1];
+        }
+        catch (Exception ex)
+        {
+            Debug.Log("This is me being lazy: not all 4 characters set up yet but that's fine if you're still in Character Select. OTherwise, Fuck!");
+        }
+
+
+    }
+
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 }

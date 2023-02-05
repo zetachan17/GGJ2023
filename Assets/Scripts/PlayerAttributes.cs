@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class PlayerAttributes
 {
+
     [SerializeField] private string playerName;
     [SerializeField] private int chosenAnimal;
     

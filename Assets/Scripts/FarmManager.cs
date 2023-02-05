@@ -13,8 +13,6 @@ public class FarmManager : MonoBehaviour
     [SerializeField] int mTurn = 1;
     [SerializeField] GameObject mGrid;
 
-
-
     [SerializeField] PlayerAttributes mPlayer1;
     [SerializeField] PlayerAttributes mPlayer2;
     [SerializeField] PlayerAttributes mPlayer3;
