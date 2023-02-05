@@ -24,6 +24,9 @@ public class PlayerAttributes : MonoBehaviour
     
     //bool if the player has left
     private bool hasLeft = false;
+
+    //int player leave order
+    public int playerLeaveOrder;
     
     // Start is called before the first frame update
     void Start()

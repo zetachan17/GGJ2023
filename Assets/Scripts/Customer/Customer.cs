@@ -13,6 +13,10 @@ public class Customer : MonoBehaviour
 
     private Dictionary<Vegetable.VegetableType, int> quest = new Dictionary<Vegetable.VegetableType, int>();
 
+    public Dictionary<Vegetable.VegetableType, int> getQuest()
+    {
+        return quest;
+    }
 
     public void CreateQuests(string customerType)
     {
