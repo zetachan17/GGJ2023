@@ -184,7 +184,11 @@ public class UIMenu : MonoBehaviour
             roundTurnIndicator.gameObject.SetActive(false);
             turnText.gameObject.SetActive(false);
             apTextForActionyTimes.gameObject.SetActive(false);
-            GameObject.Find("Go To Market Button").SetActive(false);
+            if(GameObject.Find("Go To Market Button"))
+            {
+                GameObject.Find("Go To Market Button").SetActive(false);
+            }
+           
             GameObject.Find("End Turn Button").SetActive(false);
         }
 
