@@ -115,17 +115,17 @@ public class UIMenu : MonoBehaviour
         player1CarrotPotatoTurnip[0].text = "x " + gameinfo.mPlayer1.Vegetables.Count(v => v.x == 1);
         player1CarrotPotatoTurnip[2].text = "x " + gameinfo.mPlayer1.Vegetables.Count(v => v.x == 2);
 
-        player2CarrotPotatoTurnip[1].text = "x " + gameinfo.mPlayer1.Vegetables.Count(v => v.x == 0);
-        player2CarrotPotatoTurnip[0].text = "x " + gameinfo.mPlayer1.Vegetables.Count(v => v.x == 1);
-        player2CarrotPotatoTurnip[2].text = "x " + gameinfo.mPlayer1.Vegetables.Count(v => v.x == 2);
+        player2CarrotPotatoTurnip[1].text = "x " + gameinfo.mPlayer2.Vegetables.Count(v => v.x == 0);
+        player2CarrotPotatoTurnip[0].text = "x " + gameinfo.mPlayer2.Vegetables.Count(v => v.x == 1);
+        player2CarrotPotatoTurnip[2].text = "x " + gameinfo.mPlayer2.Vegetables.Count(v => v.x == 2);
 
-        player3CarrotPotatoTurnip[1].text = "x " + gameinfo.mPlayer1.Vegetables.Count(v => v.x == 0);
-        player3CarrotPotatoTurnip[0].text = "x " + gameinfo.mPlayer1.Vegetables.Count(v => v.x == 1);
-        player3CarrotPotatoTurnip[2].text = "x " + gameinfo.mPlayer1.Vegetables.Count(v => v.x == 2);
+        player3CarrotPotatoTurnip[1].text = "x " + gameinfo.mPlayer3.Vegetables.Count(v => v.x == 0);
+        player3CarrotPotatoTurnip[0].text = "x " + gameinfo.mPlayer3.Vegetables.Count(v => v.x == 1);
+        player3CarrotPotatoTurnip[2].text = "x " + gameinfo.mPlayer3.Vegetables.Count(v => v.x == 2);
 
-        player4CarrotPotatoTurnip[1].text = "x " + gameinfo.mPlayer1.Vegetables.Count(v => v.x == 0);
-        player4CarrotPotatoTurnip[0].text = "x " + gameinfo.mPlayer1.Vegetables.Count(v => v.x == 1);
-        player4CarrotPotatoTurnip[2].text = "x " + gameinfo.mPlayer1.Vegetables.Count(v => v.x == 2);
+        player4CarrotPotatoTurnip[1].text = "x " + gameinfo.mPlayer4.Vegetables.Count(v => v.x == 0);
+        player4CarrotPotatoTurnip[0].text = "x " + gameinfo.mPlayer4.Vegetables.Count(v => v.x == 1);
+        player4CarrotPotatoTurnip[2].text = "x " + gameinfo.mPlayer4.Vegetables.Count(v => v.x == 2);
 
             //set scores
         playerScores[0].text = "Score: " + gameinfo.mPlayer1.playerScore;
