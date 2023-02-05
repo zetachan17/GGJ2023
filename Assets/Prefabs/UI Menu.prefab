@@ -3248,10 +3248,10 @@ MonoBehaviour:
   roundTurnIndicator: {fileID: 0}
   gameinfo: {fileID: 0}
   characterAvatars:
-  - {fileID: 21300000, guid: f37470ff9a786b44580f07d5d98ec0bd, type: 3}
-  - {fileID: 21300000, guid: 0fba25845c1780f49aa945daada31359, type: 3}
-  - {fileID: 21300000, guid: b863827bbb2311b4eb4ace51776bba7e, type: 3}
-  - {fileID: 21300000, guid: 5470e4fe06859cb45a8ba8370b153419, type: 3}
+  - {fileID: 21300000, guid: 35b6a4d33c4593642871bd6470416fe4, type: 3}
+  - {fileID: 21300000, guid: 2269229c577c32d479a6422b3ffd6516, type: 3}
+  - {fileID: 21300000, guid: 7674790a21d64bb409861c0b3c90640c, type: 3}
+  - {fileID: 21300000, guid: 6be0e31ca454e5942a60b855a4a12c9d, type: 3}
 --- !u!1 &3837788055476073677
 GameObject:
   m_ObjectHideFlags: 0
