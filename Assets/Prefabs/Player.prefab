@@ -93,13 +93,14 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7535436032156162812}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d510aa1393be8e847984ebfd4bc0385b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   groundTilemap: {fileID: 0}
   collisionTilemap: {fileID: 0}
+  spawner: {fileID: 0}
   testSpawnObj: {fileID: 0}
   plantedSeedsPos: []
   playerAttributes: {fileID: 7535436032156162800}
@@ -115,5 +116,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 97e0d0ce65c3ca64fbb770f521aa21c0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerName: 
+  chosenAnimal: 0
   playerPosition: {x: 0, y: 0}
   maxAP: 6
+  playerLeaveOrder: 0
