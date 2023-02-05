@@ -9,15 +9,14 @@ public class PlayerControls: MonoBehaviour
 
     [SerializeField]private Tilemap groundTilemap;
     [SerializeField]private Tilemap collisionTilemap;
-    [SerializeField]private PlayerActions playerActions;
+    [SerializeField] private PlayerActions playerActions;
     [SerializeField] private SpawnThingOnGrid spawner;
     [SerializeField] private GameObject testSpawnObj; // 
 
     [SerializeField] private List<Vector3Int> plantedSeedsPos;
 
     [SerializeField] private PlayerAttributes playerAttributes;
-    [SerializeField] private SwitchPlayer switchPlayer;
-    
+
     private void Awake() {
         playerActions = new PlayerActions();
     }
@@ -111,6 +110,11 @@ public class PlayerControls: MonoBehaviour
                 {
                     Debug.Log(spawner.plantedVegetables[i].GetComponentInChildren<Vegetable>().getType() + "is at"+ newgridPosition + "is harvested!!!!");
                     Destroy(spawner.plantedVegetables[i]);
+                    
+                    //add score
+                    playerAttributes.playerScore += 10;
+                    Debug.Log("player score: " + playerAttributes.playerScore);
+                    
                     spawner.plantedVegetableLocations.RemoveAt(i);
                     spawner.plantedVegetables.RemoveAt(i);
                 }
