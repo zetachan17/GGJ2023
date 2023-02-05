@@ -116,8 +116,14 @@ namespace UI.Menus
             charSelectButtons[chosenAnimal-1].GetComponent<Button>().enabled = false;
             charSelectButtons[chosenAnimal - 1].GetComponent<Image>().color = Color.gray;
 
+            if (!gameinfo)
+            {
+                gameinfo = GameInfo.Instance;
+            }
+
             switch (currentPlayer)
             {
+
                 case 1:
                     gameinfo.mPlayer1 = new PlayerAttributes(newName, chosenAnimal);
                     break;
