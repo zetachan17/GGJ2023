@@ -5,10 +5,11 @@ using UnityEngine.Tilemaps;
 
 public class PlayerControls: MonoBehaviour
 {
+
     [SerializeField]private Tilemap groundTilemap;
     [SerializeField]private Tilemap collisionTilemap;
-    private PlayerActions playerActions;
-    private SpawnThingOnGrid thingspawner;
+    [SerializeField]private PlayerActions playerActions;
+    [SerializeField] private SpawnThingOnGrid spawner;
     [SerializeField] private GameObject testSpawnObj; // 
 
     [SerializeField] private List<Vector3Int> plantedSeedsPos;
@@ -17,7 +18,6 @@ public class PlayerControls: MonoBehaviour
     
     private void Awake() {
         playerActions = new PlayerActions();
-        thingspawner = new SpawnThingOnGrid();
     }
 
     private void OnEnable() {
@@ -36,7 +36,9 @@ public class PlayerControls: MonoBehaviour
         if (CanMove(dir)){
             //testing spawn thing on player pos 
             Vector3Int gridPosition = groundTilemap.WorldToCell(transform.position);
-            thingspawner.SpawnThingAt(testSpawnObj, transform.position);
+            Vector3 v3 = (Vector3)gridPosition;
+
+            //spawner.SpawnThingAt(testSpawnObj, transform.position);
 
             /*
             //Add planted seeds to list of pos that has seeds
@@ -54,20 +56,35 @@ public class PlayerControls: MonoBehaviour
                 }
             }
             */
-            
-            
 
 
             //player moves
             //if (playerAttributes.CurrentAP > 0)
             {
                 playerAttributes.CurrentAP--;
-                transform.position += (Vector3)dir;
-                Debug.Log("moved to" + groundTilemap.WorldToCell(transform.position));
+                transform.position += (Vector3)dir;//moved
                 Debug.Log("AP left: " + playerAttributes.CurrentAP);
+                
+                Vector3Int newgridPosition = groundTilemap.WorldToCell(transform.position);
+                Debug.Log("player moved to" + newgridPosition + "!!");
+                if (spawner.plantedVegetableLocations.Contains(newgridPosition))
+                {
+                    Vector3 newv3 = (Vector3)newgridPosition;
+                    
+                    for(int i = 0; i < spawner.plantedVegetableLocations.Count; i++)
+                    {
+                        if(spawner.plantedVegetableLocations[i] == newv3)
+                        {
+                            Debug.Log(spawner.plantedVegetables[i].GetComponentInChildren<Vegetable>().getType() + "is at"+ newgridPosition + "!!!!");
+                        }
+                    }
+
+                }
+
             }
             
-            
+
+
         }
 
     }
