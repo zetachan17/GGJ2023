@@ -19,10 +19,16 @@ public class MarketManager : MonoBehaviour
 
     public Sprite[] vegeSprite;
 
+    public GameInfo gameInfo;
+
+    public int 
+
+
     // Start is called before the first frame update
     void Start()
     {
         Invoke(nameof(CreateCustomers), 0);
+
     }
 
     public void CreateCustomers()

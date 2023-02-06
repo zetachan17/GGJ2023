@@ -232,6 +232,22 @@ public class Customer : MonoBehaviour
     {
         gameObject.transform.localScale += new Vector3(1, 1, 0);
         print("this is highlighted");
+
+        GameInfo gameInfo = FindObjectOfType<GameInfo>();
+
+        checkIfEligible(gameInfo.mPlayer1.Vegetables);
+        print("player1: " + gameInfo.mPlayer1.Vegetables);
+
+    }
+
+    private void FixedUpdate()
+    {
+        if (Input.GetKey(KeyCode.Space))
+        {
+            print("Sell!");
+            GameInfo gameInfo = FindObjectOfType<GameInfo>();
+            completeQuest(gameInfo.mPlayer1.Vegetables);
+        }
     }
 
     private void OnTriggerExit2D(Collider2D other)
@@ -244,7 +260,19 @@ public class Customer : MonoBehaviour
     {
         if (checkIfEligible(playerInventory))
         {
+            int score = 0;
+            foreach(var vege in quest)
+            {
+                score += 10;
+
+            }
             quest.Clear();
+            GameInfo gameInfo = FindObjectOfType<GameInfo>();
+            gameInfo.mPlayer1.playerScore += score;
+            gameInfo.mPlayer1.Vegetables.Clear();
+            
+            GetComponent<SpriteRenderer>().color = Color.black;
+
         }
     }
 
@@ -299,6 +327,8 @@ public class Customer : MonoBehaviour
                     return false;
             }
         }
+
+        
 
         return true;
     }

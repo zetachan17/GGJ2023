@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using UnityEngine;
 
+[System.Serializable]
 public class PlayerAttributes
 {
 
@@ -18,7 +19,7 @@ public class PlayerAttributes
     //a enum that has powers
 
     //a list of all the vegetables the player has
-    private List<Vector2Int> vegetables = new List<Vector2Int>();
+    public List<Vector2Int> vegetables = new List<Vector2Int>();
     
     // a list of powers the player has
     private List<Power> powers = new List<Power>();
